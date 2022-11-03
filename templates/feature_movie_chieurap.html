@@ -1,4 +1,5 @@
 <div class="general">
+  <h4 class="latest-text w3_latest_text">Phim chiếu rạp</h4>
   <div class="container">
     <div
       class="bs-example bs-example-tabs"
@@ -15,15 +16,17 @@
           <div class="w3_agile_featured_movies">
             <div class="" style="text-align: right; padding-bottom: 10px">
               <h3>
-                <a href="{{ url_for('all_phimle') }}"
+                <a href="{{ url_for('all_phimchieurap') }}"
                   ><span class="label label-success">Xem thêm</span></a
                 >
               </h3>
             </div>
 
-            {% for post in all_posts: %}
+            {% for post in all_posts_chieurap: %}
             <div class="col-md-2 w3l-movie-gride-agile">
-              <a href="{{ url_for('show_post_le', index = post._id) }}" class="hvr-shutter-out-horizontal"
+              <a
+                href="{{ url_for('show_post_chieurap', postid=post._id) }}"
+                class="hvr-shutter-out-horizontal"
                 ><img
                   src="{{ post.image }}"
                   title="album-name"

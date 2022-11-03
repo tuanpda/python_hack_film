@@ -1,0 +1,96 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head tag -->
+  {% include "head_tag.html" %}
+
+  <body>
+    <!-- header -->
+    {% include "header.html" %}
+    <!-- //header -->
+    <!-- sử dụng navbar-xxx -->
+    {% include "navbar_xxx.html" %}
+    <!-- //nav -->
+
+    <div class="container">
+      <!-- iframe video -->
+      <div class="embed-responsive embed-responsive-16by9" style="margin-top:1rem">
+        <iframe
+          class="embed-responsive-item"
+          src="https://cloufdlare.com/player/embed.php?id=EGWjAo2&sv=phimloz.co&t=1"
+        ></iframe>
+      </div>
+      <div class="clearfix"></div>
+	  <!-- rele videos  -->
+      <div
+        class="bs-example bs-example-tabs"
+        role="tabpanel"
+        data-example-id="togglable-tabs"
+		style="margin-top: 3px;"
+      >
+        <ul id="myTab" class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a
+              href="#home"
+              id="home-tab"
+              role="tab"
+              data-toggle="tab"
+              aria-controls="home"
+              aria-expanded="true"
+              >Videos liên quan</a
+            >
+          </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div
+            role="tabpanel"
+            class="tab-pane fade active in"
+            id="home"
+            aria-labelledby="home-tab"
+          >
+            <div class="w3_agile_featured_movies">
+              {% for post in all_posts: %}
+              <div class="col-md-2 w3l-movie-gride-agile">
+                <a
+                  href="{{ url_for('show_post', index = post._id) }}"
+                  class="hvr-shutter-out-horizontal"
+                  ><img
+                    src="{{ post.image }}"
+                    title="album-name"
+                    class="img-responsive"
+                    alt=" "
+                  />
+                  <div class="w3l-action-icon">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
+                  </div>
+                </a>
+                <div class="mid-1 agileits_w3layouts_mid_1_home">
+                  <div class="w3l-movie-text">
+                    <h6>
+                      <a href="{{ url_for('show_post', index = post._id) }}"
+                        >{{ post.title }}</a
+                      >
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    {% include "footer.html" %}
+    <!-- //footer -->
+    <!-- Bootstrap Core JavaScript -->
+    {% include "bootstrap_core_javascript.html" %}
+  </body>
+</html>

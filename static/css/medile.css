@@ -205,6 +205,10 @@ ul#myTab {
 }
 .w3l-movie-text {
 	    margin: 0.7em 0;
+        display: -webkit-box;
+	    -webkit-line-clamp: 1;
+	    -webkit-box-orient: vertical;
+	    overflow: hidden;
 }
 .mid-2 p {
        float: left;
@@ -254,12 +258,12 @@ i.glyphicon.glyphicon-play-circle {
     left: 4%;
     padding: 20px 0 0 0;
     background: #ff8d1b;
-    width: 40px;
+    width: 100px;
     height: 40px;
-    border-radius: 50%;
-	-webkit- border-radius: 50%;
-	-0- border-radius: 50%;
-	-moz- border-radius: 50%;
+    /* border-radius: 50%; */
+	/* -webkit-border-radius: 50%; */
+	/* border-radius: 50%; */
+	/* -moz-border-radius: 50%; */
 }
 .ribben p {
     font-size:0.9em;
