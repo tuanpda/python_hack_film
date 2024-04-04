@@ -7,7 +7,8 @@ import json
 import codecs
 import random
 from tqdm import tqdm
-import datetime
+from datetime import datetime
+
 import time
 import subprocess
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -16,7 +17,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from pushdatafilmtosqlserver import push_data_to_database
 
 # Lấy ngày hiện tại
-current_datetime = datetime.datetime.now()
+current_datetime = datetime.now()
 current_date = current_datetime.strftime("%Y-%m-%d")
 current_time = current_datetime.strftime("%H:%M:%S")
 current_day = current_datetime.strftime("%A")
@@ -511,7 +512,7 @@ scheduler = BlockingScheduler()
 # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
 scheduler.add_job(job, "cron", hour=17, minute=45)
 
-# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 17:45 hàng ngày
+# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
 scheduler.add_job(job, "interval", hours=10)
 
 # Bắt đầu lịch trình
