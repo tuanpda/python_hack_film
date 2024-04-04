@@ -10,6 +10,7 @@ from tqdm import tqdm
 import datetime
 import time
 import subprocess
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 # from file pushdatafilmtosqlserver
 from pushdatafilmtosqlserver import push_data_to_database
@@ -187,7 +188,9 @@ def get_Film_Data_Newest(
 
                         # tìm tất cả các thẻ div có class là text-center
                         try:
-                            find_div = soup_data_movie.find(name="div", class_="text-center")
+                            find_div = soup_data_movie.find(
+                                name="div", class_="text-center"
+                            )
                         except AttributeError:
                             find_div = " "
                         # Tìm tất cả các thẻ 'a' có class là 'btn btn-default streaming-server'
@@ -215,11 +218,13 @@ def get_Film_Data_Newest(
                             image_url,
                             actor,
                             data_links,
-                            'https://zuiphim.org/'
+                            "https://zuiphim.org/",
                         )
 
                         # ghi ra file json
-                        with open(f"{json_file_name}", "w", encoding="utf-8") as write_file:
+                        with open(
+                            f"{json_file_name}", "w", encoding="utf-8"
+                        ) as write_file:
                             json.dump(videos, write_file, ensure_ascii=False)
 
         print(f"# Xong trang {page_number} của {name_of_cat} ")
@@ -362,7 +367,9 @@ def get_Film_Data_With_Cat(
 
                         # tìm tất cả các thẻ div có class là text-center
                         try:
-                            find_div = soup_data_movie.find(name="div", class_="text-center")
+                            find_div = soup_data_movie.find(
+                                name="div", class_="text-center"
+                            )
                         except AttributeError:
                             find_div = " "
                         # Tìm tất cả các thẻ 'a' có class là 'btn btn-default streaming-server'
@@ -390,11 +397,13 @@ def get_Film_Data_With_Cat(
                             image_url,
                             actor,
                             data_links,
-                            'https://zuiphim.org/'
+                            "https://zuiphim.org/",
                         )
 
                         # ghi ra file json
-                        with open(f"{json_file_name}", "w", encoding="utf-8") as write_file:
+                        with open(
+                            f"{json_file_name}", "w", encoding="utf-8"
+                        ) as write_file:
                             json.dump(videos, write_file, ensure_ascii=False)
 
         print(f"# Xong trang {page_number} của {name_of_cat} ")
@@ -423,56 +432,90 @@ def get_Film_Data_With_Cat(
         file.write(f"#  ----- \n")
 
 
-# các thông số cơ bản
-linkphimnewest = 'https://zuiphim.org'
-linkphim = "https://zuiphim.org/the-loai"
-num_of_page_value = 10
-page_number_value = 1
-
-# GỌI HÀM GET PHIM MỚI
-get_Film_Data_Newest(
-    linkphimnewest,
-    "NewMovie",
-    "Phim mới",
-    1,
-    1,
-    "zuiphim_phimmoi.json",
-)
-
-# GỌI HÀM GET PHIM THEO THỂ LOẠI
-# Khai báo các thông số cho từng loại phim
-film_types = [
-    ("ActionFilm", "Phim hành động", "hanh-dong", "zuiphim_phimhanhdong.json"),
-    ("MartialFilm", "Phim võ thuật", "vo-thuat", "zuiphim_phimvothuat.json"),
-    ("AnimelFilm", "Phim hoạt hình", "hoat-hinh", "zuiphim_phimhoathinh.json"),
-    ("HorrorFilm", "Phim kinh dị", "kinh-di", "zuiphim_phimkinhdi.json"),
-    ("WarFilm", "Phim chiến tranh", "chien-tranh", "zuiphim_phimchientranh.json"),
-    ("PolFilm", "Phim hình sự", "hinh-su", "zuiphim_phimhinhsu.json"),
-    ("LoveFilm", "Phim tình cảm", "tinh-cam", "zuiphim_phimtinhcam.json"),
-    ("StudentFilm", "Phim học đường", "hoc-duong", "zuiphim_phimhocduong.json"),
-]
-
-functions_to_call = []
-
-# Lặp qua danh sách các loại phim và thêm các hàm gọi vào danh sách functions_to_call
-for film_type in film_types:
-    function_args = [
-        linkphim,
-        film_type[0],  # code_name_cat
-        film_type[1],  # name_of_cat
-        film_type[2],  # code_cat_on_web
-        num_of_page_value,
-        page_number_value,
-        film_type[3], #jsonfile
-    ]
-    functions_to_call.append({"function": get_Film_Data_With_Cat, "args": function_args})
+def job():
+    start_time = datetime.now()
+    print("Job started at:", start_time)
     
-# Gọi các hàm được lưu trong danh sách
-for function_info in functions_to_call:
-    function = function_info["function"]
-    args = function_info["args"]
-    function(*args)
+    # các thông số cơ bản
+    linkphimnewest = "https://zuiphim.org"
+    linkphim = "https://zuiphim.org/the-loai"
+    num_of_page_value = 10
+    page_number_value = 1
+
+    # GỌI HÀM GET PHIM MỚI
+    get_Film_Data_Newest(
+        linkphimnewest,
+        "NewMovie",
+        "Phim mới",
+        1,
+        1,
+        "zuiphim_phimmoi.json",
+    )
+
+    # GỌI HÀM GET PHIM THEO THỂ LOẠI
+    # Khai báo các thông số cho từng loại phim
+    film_types = [
+        ("ActionFilm", "Phim hành động", "hanh-dong", "zuiphim_phimhanhdong.json"),
+        ("MartialFilm", "Phim võ thuật", "vo-thuat", "zuiphim_phimvothuat.json"),
+        ("AnimelFilm", "Phim hoạt hình", "hoat-hinh", "zuiphim_phimhoathinh.json"),
+        ("HorrorFilm", "Phim kinh dị", "kinh-di", "zuiphim_phimkinhdi.json"),
+        ("WarFilm", "Phim chiến tranh", "chien-tranh", "zuiphim_phimchientranh.json"),
+        ("PolFilm", "Phim hình sự", "hinh-su", "zuiphim_phimhinhsu.json"),
+        ("LoveFilm", "Phim tình cảm", "tinh-cam", "zuiphim_phimtinhcam.json"),
+        ("StudentFilm", "Phim học đường", "hoc-duong", "zuiphim_phimhocduong.json"),
+    ]
+
+    functions_to_call = []
+
+    # Lặp qua danh sách các loại phim và thêm các hàm gọi vào danh sách functions_to_call
+    for film_type in film_types:
+        function_args = [
+            linkphim,
+            film_type[0],  # code_name_cat
+            film_type[1],  # name_of_cat
+            film_type[2],  # code_cat_on_web
+            num_of_page_value,
+            page_number_value,
+            film_type[3],  # jsonfile
+        ]
+        functions_to_call.append(
+            {"function": get_Film_Data_With_Cat, "args": function_args}
+        )
+
+    # Gọi các hàm được lưu trong danh sách
+    for function_info in functions_to_call:
+        function = function_info["function"]
+        args = function_info["args"]
+        function(*args)
+
+    # GỌI HÀM TRONG FILE KÉO PHIM TẠI SERVER XEMPHIMNGAY.COM
+    subprocess.run(["python", "keophim_xemphimngay.py"])
+    
+    end_time = datetime.now()
+    print("Job finished at:", end_time)
+    
+    elapsed_time = end_time - start_time
+    print("Elapsed time:", elapsed_time)
+    
+    # Ghi log vào file
+    with open("log_scheduler.txt", "w") as file:
+        file.write("--------------------------------------- \n")
+        file.write("Job started at: " + str(start_time) + "\n")
+        file.write("Job finished at: " + str(end_time) + "\n")
+        file.write("Elapsed time: " + str(elapsed_time) + "\n\n")
 
 
-# GỌI HÀM TRONG FILE KÉO PHIM TẠI SERVER XEMPHIMNGAY.COM
-subprocess.run(["python", "keophim_xemphimngay.py"])
+# Khởi tạo scheduler
+scheduler = BlockingScheduler()
+
+# Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
+scheduler.add_job(job, "cron", hour=17, minute=45)
+
+# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 17:45 hàng ngày
+scheduler.add_job(job, "interval", hours=10)
+
+# Bắt đầu lịch trình
+try:
+    scheduler.start()
+except KeyboardInterrupt:
+    pass

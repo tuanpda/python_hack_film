@@ -219,7 +219,7 @@ def get_Film_Data_With_Cat(
 
 # các thông số cơ bản
 linkphim = "https://xemphimngay.com/the-loai"
-num_of_page_value = 10
+num_of_page_value = 3
 page_number_value = 1
 server='https://xemphimngay.com'
 # Khai báo các thông số cho từng loại phim
