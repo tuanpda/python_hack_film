@@ -78,13 +78,13 @@ def get_Film_Data_With_Cat(
     # Thời gian bắt đầu kéo
     start_time = time.time()
     
-    print(f"# Thời gian bắt đầu kéo: {start_time} \n")
-    print(f"# Bắt đầu kéo {name_of_cat} \n")
+    print(f"# Time start scan: {start_time} \n")
+    print(f"# start scan {name_of_cat} \n")
     print(f"# Đang đặt thông số kéo {num_of_page} trang \n")
     with open(filename, "a", encoding="utf-8") as file:
-        file.write(f"# Thời gian bắt đầu kéo: {start_time} \n")
-        file.write(f"# Bắt đầu kéo {name_of_cat} \n")
-        file.write(f"# Đang đặt thông số kéo {num_of_page} trang \n")
+        file.write(f"# Thoi gian bat dau keo: {start_time} \n")
+        file.write(f"# Bat dau keo {name_of_cat} \n")
+        file.write(f"# Thong so keo {num_of_page} trang \n")
 
     while page_number <= num_of_page:
         # Link get phim
@@ -194,7 +194,7 @@ def get_Film_Data_With_Cat(
 
         print(f"# Xong trang {page_number} của {name_of_cat} ")
         with open(filename, "a", encoding="utf-8") as file:
-            file.write(f"# Xong trang {page_number} của {name_of_cat}  \n")
+            file.write(f"# Xong trang {page_number} cua {name_of_cat}  \n")
         page_number += 1
         
     # Thời gian kết thúc
@@ -202,17 +202,17 @@ def get_Film_Data_With_Cat(
     # Thời gian đã trôi qua
     elapsed_time = end_time - start_time
 
-    print(f"# Kéo xong toàn bộ {num_of_page} trang {name_of_cat} ")
-    print(f"# Bắt đầu đẩy dữ liệu vào DB")
+    print(f"# Keo xong toan bo {num_of_page} trang {name_of_cat} ")
+    print(f"# Day du lieu DB")
     push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 1)
-    print(f"# Đẩy xong dữ liệu")
-    print(f"# Thời gian hoàn thành: {elapsed_time} giây")
+    print(f"# Done")
+    print(f"# Time hoan thanh: {elapsed_time} giây")
 
     with open(filename, "a", encoding="utf-8") as file:
-        file.write(f"# Kéo xong toàn bộ {num_of_page} trang {name_of_cat}  \n")
-        file.write(f"# Bắt đầu đẩy dữ liệu vào DB \n")
-        file.write(f"# Đẩy xong dữ liệu \n")
-        file.write(f"# Thời gian hoàn thành: {elapsed_time} giây \n")
+        file.write(f"# Keo xong toan bo {num_of_page} trang {name_of_cat}  \n")
+        file.write(f"# Bat dau day du lieu vao DB \n")
+        file.write(f"# Day xong du lieu \n")
+        file.write(f"# Thoi gian hoan thanh: {elapsed_time} giây \n")
         file.write(f"# Ending # \n")
         file.write(f"#   \n")
         file.write(f"#  ----- \n")

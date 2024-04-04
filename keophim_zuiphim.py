@@ -83,13 +83,13 @@ def get_Film_Data_Newest(
     print(f"# Bắt đầu kéo {name_of_cat} \n")
     print(f"# Đang đặt thông số kéo {num_of_page} trang \n")
     with open(filename, "a", encoding="utf-8") as file:
-        file.write(f"# Bắt đầu kéo {name_of_cat} \n")
-        file.write(f"# Đang đặt thông số kéo {num_of_page} trang \n")
+        file.write(f"# Start scan {name_of_cat} \n")
+        file.write(f"# Config scan {num_of_page} trang \n")
 
     while page_number <= num_of_page:
-        print(f"# Đang lấy trang {page_number} của {name_of_cat}")
+        print(f"# Get page {page_number} of {name_of_cat}")
         with open(filename, "a", encoding="utf-8") as file:
-            file.write(f"# Đang lấy trang {page_number} của {name_of_cat} \n")
+            file.write(f"# Get page {page_number} of {name_of_cat} \n")
 
         # Link get phim
         get_link = f"{link_phim}"
@@ -230,7 +230,7 @@ def get_Film_Data_Newest(
 
         print(f"# Xong trang {page_number} của {name_of_cat} ")
         with open(filename, "a", encoding="utf-8") as file:
-            file.write(f"# Xong trang {page_number} của {name_of_cat}  \n")
+            file.write(f"# Done page {page_number} of {name_of_cat}  \n")
         page_number += 1
 
     print(f"# Kéo xong toàn bộ {num_of_page} trang {name_of_cat} ")
@@ -242,6 +242,11 @@ def get_Film_Data_Newest(
         file.write(f"# Kéo xong toàn bộ {num_of_page} trang {name_of_cat}  \n")
         file.write(f"# Bắt đầu đẩy dữ liệu vào DB \n")
         file.write(f"# Đẩy xong dữ liệu \n")
+    
+    with open(filename, "a", encoding="utf-8") as file:
+        file.write(f"# Scan all page {num_of_page} of page {name_of_cat}  \n")
+        file.write(f"# Start push into DB \n")
+        file.write(f"# Done ! \n")
 
 
 # Get Films
@@ -261,14 +266,14 @@ def get_Film_Data_With_Cat(
     print(f"# Bắt đầu kéo {name_of_cat} \n")
     print(f"# Đang đặt thông số kéo {num_of_page} trang \n")
     with open(filename, "a", encoding="utf-8") as file:
-        file.write(f"# Thời gian bắt đầu kéo: {start_time} \n")
-        file.write(f"# Bắt đầu kéo {name_of_cat} \n")
-        file.write(f"# Đang đặt thông số kéo {num_of_page} trang \n")
+        file.write(f"# Time start scan: {start_time} \n")
+        file.write(f"# Started scan {name_of_cat} \n")
+        file.write(f"# Config scan of {num_of_page} trang \n")
 
     while page_number <= num_of_page:
         print(f"# Đang lấy trang {page_number} của {name_of_cat}")
         with open(filename, "a", encoding="utf-8") as file:
-            file.write(f"# Đang lấy trang {page_number} của {name_of_cat} \n")
+            file.write(f"# Get page {page_number} of {name_of_cat} \n")
 
         # Link get phim
         get_link = f"{link_phim}/{code_cat_on_web}?page={page_number}"
@@ -409,7 +414,7 @@ def get_Film_Data_With_Cat(
 
         print(f"# Xong trang {page_number} của {name_of_cat} ")
         with open(filename, "a", encoding="utf-8") as file:
-            file.write(f"# Xong trang {page_number} của {name_of_cat}  \n")
+            file.write(f"# Done page {page_number} of {name_of_cat}  \n")
         page_number += 1
 
     # Thời gian kết thúc
@@ -424,10 +429,10 @@ def get_Film_Data_With_Cat(
     print(f"# Thời gian hoàn thành: {elapsed_time} giây")
 
     with open(filename, "a", encoding="utf-8") as file:
-        file.write(f"# Kéo xong toàn bộ {num_of_page} trang {name_of_cat}  \n")
-        file.write(f"# Bắt đầu đẩy dữ liệu vào DB \n")
-        file.write(f"# Đẩy xong dữ liệu \n")
-        file.write(f"# Thời gian hoàn thành: {elapsed_time} giây \n")
+        file.write(f"# Scan all page {num_of_page} of page {name_of_cat}  \n")
+        file.write(f"# Start push into DB \n")
+        file.write(f"# Done ! \n")
+        file.write(f"# Elapsed time: {elapsed_time} giây \n")
         file.write(f"# Ending # \n")
         file.write(f"#   \n")
         file.write(f"#  ----- \n")
