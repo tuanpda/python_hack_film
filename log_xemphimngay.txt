@@ -1,0 +1,551 @@
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 14:48:17 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712044097.6044939 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hành động  
+# Kéo xong toàn bộ 1 trang Phim hành động  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 124.35701608657837 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712044223.2284365 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim võ thuật  
+# Kéo xong toàn bộ 1 trang Phim võ thuật  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 142.602201461792 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712044367.2928119 
+# Bắt đầu kéo Phim hoạt hình 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hoạt hình  
+# Kéo xong toàn bộ 1 trang Phim hoạt hình  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 126.99329233169556 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712044496.2681727 
+# Bắt đầu kéo Phim kinh dị 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim kinh dị  
+# Kéo xong toàn bộ 1 trang Phim kinh dị  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 108.1558530330658 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712044606.9289808 
+# Bắt đầu kéo Phim chiến tranh 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim chiến tranh  
+# Kéo xong toàn bộ 1 trang Phim chiến tranh  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 118.5815782546997 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712044728.3750682 
+# Bắt đầu kéo Phim hình sự 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hình sự  
+# Kéo xong toàn bộ 1 trang Phim hình sự  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 127.21906065940857 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712044858.66977 
+# Bắt đầu kéo Phim tình cảm 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim tình cảm  
+# Kéo xong toàn bộ 1 trang Phim tình cảm  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 108.10173535346985 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712044971.228956 
+# Bắt đầu kéo Phim học đường 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim học đường  
+# Kéo xong toàn bộ 1 trang Phim học đường  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 119.84831190109253 giây 
+# Ending # 
+#   
+#  ----- 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 15:40:02 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712047202.5455232 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hành động  
+# Kéo xong toàn bộ 1 trang Phim hành động  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 138.366308927536 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712047341.6079133 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim võ thuật  
+# Kéo xong toàn bộ 1 trang Phim võ thuật  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 127.59113311767578 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712047470.3755236 
+# Bắt đầu kéo Phim hoạt hình 
+# Đang đặt thông số kéo 1 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 15:55:01 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712048101.745036 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 1 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 15:55:48 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712048148.6374953 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 1 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 16:15:38 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712049338.7436538 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 10 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 16:22:06 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712049726.161369 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 10 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 16:28:36 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712050116.953199 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim võ thuật  
+# Kéo xong toàn bộ 1 trang Phim võ thuật  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 125.25718212127686 giây 
+# Ending # 
+#   
+#  ----- 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 16:31:54 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712050314.098057 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 10 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 16:34:55 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712050495.0589778 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 10 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 17:06:26 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712052386.419534 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 10 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 17:10:24 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712052624.1627347 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 10 trang 
+# Xong trang 10 của Phim võ thuật  
+# Kéo xong toàn bộ 10 trang Phim võ thuật  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 128.39841294288635 giây 
+# Ending # 
+#   
+#  ----- 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 17:17:19 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712053039.4256532 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hành động  
+# Kéo xong toàn bộ 1 trang Phim hành động  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 113.7733325958252 giây 
+# Ending # 
+#   
+#  ----- 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 17:22:09 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712053329.8939264 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 17:30:23 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712053823.0952191 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hành động  
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 17:34:10 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712054050.1894598 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hành động  
+# Kéo xong toàn bộ 1 trang Phim hành động  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 112.86411571502686 giây 
+# Ending # 
+#   
+#  ----- 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 17:54:58 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712055298.9555974 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hành động  
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 17:58:32 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712055512.5355842 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hành động  
+# Kéo xong toàn bộ 1 trang Phim hành động  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 126.24163436889648 giây 
+# Ending # 
+#   
+#  ----- 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 23:14:17 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712074457.2155945 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hành động  
+# Kéo xong toàn bộ 1 trang Phim hành động  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 163.58828282356262 giây 
+# Ending # 
+#   
+#  ----- 
+# LOG KEO PHIM 
+1: DATE: 2024-04-02 
+2: TIME: 23:26:17 
+3: DAY: Tuesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712075177.2246995 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 1 trang 
+# Xong trang 1 của Phim hành động  
+# Kéo xong toàn bộ 1 trang Phim hành động  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 156.50265049934387 giây 
+# Ending # 
+#   
+#  ----- 
+# LOG KEO PHIM 
+1: DATE: 2024-04-03 
+2: TIME: 00:00:46 
+3: DAY: Wednesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712077246.2468672 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 10 trang 
+# Xong trang 1 của Phim hành động  
+# Xong trang 2 của Phim hành động  
+# Xong trang 3 của Phim hành động  
+# Xong trang 4 của Phim hành động  
+# Xong trang 5 của Phim hành động  
+# Xong trang 6 của Phim hành động  
+# Xong trang 7 của Phim hành động  
+# Xong trang 8 của Phim hành động  
+# Xong trang 9 của Phim hành động  
+# Xong trang 10 của Phim hành động  
+# Kéo xong toàn bộ 10 trang Phim hành động  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 1198.6128499507904 giây 
+# Ending # 
+#   
+#  ----- 
+# LOG KEO PHIM 
+1: DATE: 2024-04-03 
+2: TIME: 06:09:49 
+3: DAY: Wednesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712099389.4190571 
+# Bắt đầu kéo Phim hành động 
+# Đang đặt thông số kéo 10 trang 
+# Xong trang 1 của Phim hành động  
+# Xong trang 2 của Phim hành động  
+# Xong trang 3 của Phim hành động  
+# Xong trang 4 của Phim hành động  
+# Xong trang 5 của Phim hành động  
+# Xong trang 6 của Phim hành động  
+# Xong trang 7 của Phim hành động  
+# Xong trang 8 của Phim hành động  
+# Xong trang 9 của Phim hành động  
+# Xong trang 10 của Phim hành động  
+# Kéo xong toàn bộ 10 trang Phim hành động  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 3488.3840749263763 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712102887.011413 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 10 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-03 
+2: TIME: 07:33:52 
+3: DAY: Wednesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712104432.686146 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 10 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-03 
+2: TIME: 07:34:18 
+3: DAY: Wednesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712104458.642844 
+# Bắt đầu kéo Phim võ thuật 
+# Đang đặt thông số kéo 10 trang 
+# Xong trang 1 của Phim võ thuật  
+# Xong trang 2 của Phim võ thuật  
+# Xong trang 3 của Phim võ thuật  
+# Xong trang 4 của Phim võ thuật  
+# Xong trang 5 của Phim võ thuật  
+# Xong trang 6 của Phim võ thuật  
+# Xong trang 7 của Phim võ thuật  
+# Xong trang 8 của Phim võ thuật  
+# Xong trang 9 của Phim võ thuật  
+# Xong trang 10 của Phim võ thuật  
+# Kéo xong toàn bộ 10 trang Phim võ thuật  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 1369.4255576133728 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712105839.5852313 
+# Bắt đầu kéo Phim hoạt hình 
+# Đang đặt thông số kéo 10 trang 
+# Xong trang 1 của Phim hoạt hình  
+# Xong trang 2 của Phim hoạt hình  
+# Xong trang 3 của Phim hoạt hình  
+# Xong trang 4 của Phim hoạt hình  
+# Xong trang 5 của Phim hoạt hình  
+# Xong trang 6 của Phim hoạt hình  
+# Xong trang 7 của Phim hoạt hình  
+# Xong trang 8 của Phim hoạt hình  
+# Xong trang 9 của Phim hoạt hình  
+# Xong trang 10 của Phim hoạt hình  
+# Kéo xong toàn bộ 10 trang Phim hoạt hình  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 1134.2476437091827 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712106987.9551826 
+# Bắt đầu kéo Phim kinh dị 
+# Đang đặt thông số kéo 10 trang 
+# Xong trang 1 của Phim kinh dị  
+# Xong trang 2 của Phim kinh dị  
+# Xong trang 3 của Phim kinh dị  
+# Xong trang 4 của Phim kinh dị  
+# Xong trang 5 của Phim kinh dị  
+# Xong trang 6 của Phim kinh dị  
+# Xong trang 7 của Phim kinh dị  
+# Xong trang 8 của Phim kinh dị  
+# Xong trang 9 của Phim kinh dị  
+# Xong trang 10 của Phim kinh dị  
+# Kéo xong toàn bộ 10 trang Phim kinh dị  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 1125.8538460731506 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712108137.988776 
+# Bắt đầu kéo Phim chiến tranh 
+# Đang đặt thông số kéo 10 trang 
+# Xong trang 1 của Phim chiến tranh  
+# Xong trang 2 của Phim chiến tranh  
+# Xong trang 3 của Phim chiến tranh  
+# Xong trang 4 của Phim chiến tranh  
+# Xong trang 5 của Phim chiến tranh  
+# Xong trang 6 của Phim chiến tranh  
+# Xong trang 7 của Phim chiến tranh  
+# Xong trang 8 của Phim chiến tranh  
+# Xong trang 9 của Phim chiến tranh  
+# Xong trang 10 của Phim chiến tranh  
+# Kéo xong toàn bộ 10 trang Phim chiến tranh  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 1170.0665519237518 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712109336.3448586 
+# Bắt đầu kéo Phim hình sự 
+# Đang đặt thông số kéo 10 trang 
+# LOG KEO PHIM 
+1: DATE: 2024-04-03 
+2: TIME: 09:16:32 
+3: DAY: Wednesday 
+4: Server Xemphimngay 
+5: Link: https://xemphimngay.com/ 
+# Starting ... 
+# Thời gian bắt đầu kéo: 1712110592.140377 
+# Bắt đầu kéo Phim hình sự 
+# Đang đặt thông số kéo 10 trang 
+# Xong trang 1 của Phim hình sự  
+# Xong trang 2 của Phim hình sự  
+# Xong trang 3 của Phim hình sự  
+# Xong trang 4 của Phim hình sự  
+# Xong trang 5 của Phim hình sự  
+# Xong trang 6 của Phim hình sự  
+# Xong trang 7 của Phim hình sự  
+# Xong trang 8 của Phim hình sự  
+# Xong trang 9 của Phim hình sự  
+# Xong trang 10 của Phim hình sự  
+# Kéo xong toàn bộ 10 trang Phim hình sự  
+# Bắt đầu đẩy dữ liệu vào DB 
+# Đẩy xong dữ liệu 
+# Thời gian hoàn thành: 1110.8155660629272 giây 
+# Ending # 
+#   
+#  ----- 
+# Thời gian bắt đầu kéo: 1712111710.5094793 
+# Bắt đầu kéo Phim tình cảm 
+# Đang đặt thông số kéo 10 trang 
+# Xong trang 1 của Phim tình cảm  
+# Xong trang 2 của Phim tình cảm  
+# Xong trang 3 của Phim tình cảm  
+# Xong trang 4 của Phim tình cảm  
+# Xong trang 5 của Phim tình cảm  
+# Xong trang 6 của Phim tình cảm  
+# Xong trang 7 của Phim tình cảm  
+# Xong trang 8 của Phim tình cảm  
+# Xong trang 9 của Phim tình cảm  
