@@ -37,4 +37,23 @@
 3: DAY: Thursday 
 4: Server Zuiphim 
 5: Link: https://zuiphim.org/ 
+# Starting ... # LOG KEO PHIM 
+1: DATE: 2024-04-04 
+2: TIME: 20:51:09 
+3: DAY: Thursday 
+4: Server Zuiphim 
+5: Link: https://zuiphim.org/ 
 # Starting ... 
+# Bắt đầu kéo Phim mới 
+# Đang đặt thông số kéo 1 trang 
+# Đang lấy trang 1 của Phim mới 
+# LOG KEO PHIM 
+1: DATE: 2024-04-04 
+2: TIME: 20:56:15 
+3: DAY: Thursday 
+4: Server Zuiphim 
+5: Link: https://zuiphim.org/ 
+# Starting ... 
+# Bắt đầu kéo Phim mới 
+# Đang đặt thông số kéo 1 trang 
+# Đang lấy trang 1 của Phim mới 
