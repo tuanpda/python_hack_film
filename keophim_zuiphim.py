@@ -80,8 +80,8 @@ def get_Film_Data_Newest(
     page_number,
     json_file_name,
 ):
-    print(f"# Bắt đầu kéo {name_of_cat} \n")
-    print(f"# Đang đặt thông số kéo {num_of_page} trang \n")
+    print(f"# Bat dau keo {name_of_cat} \n")
+    print(f"# Dang dat thong so keo {num_of_page} trang \n")
     with open(filename, "a", encoding="utf-8") as file:
         file.write(f"# Start scan {name_of_cat} \n")
         file.write(f"# Config scan {num_of_page} trang \n")
@@ -233,15 +233,15 @@ def get_Film_Data_Newest(
             file.write(f"# Done page {page_number} of {name_of_cat}  \n")
         page_number += 1
 
-    print(f"# Kéo xong toàn bộ {num_of_page} trang {name_of_cat} ")
-    print(f"# Bắt đầu đẩy dữ liệu vào DB")
+    print(f"# Keo xong toan bo {num_of_page} trang {name_of_cat} ")
+    print(f"# Day du lieu vao DB")
     push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 0)
-    print(f"# Đẩy xong dữ liệu")
+    print(f"# Day du lieu vao DB")
 
     with open(filename, "a", encoding="utf-8") as file:
-        file.write(f"# Kéo xong toàn bộ {num_of_page} trang {name_of_cat}  \n")
-        file.write(f"# Bắt đầu đẩy dữ liệu vào DB \n")
-        file.write(f"# Đẩy xong dữ liệu \n")
+        file.write(f"# Keo xong toan bo {num_of_page} trang {name_of_cat}  \n")
+        file.write(f"# Bat dau keo du lieu \n")
+        file.write(f"# Day du lieu vao DB \n")
     
     with open(filename, "a", encoding="utf-8") as file:
         file.write(f"# Scan all page {num_of_page} of page {name_of_cat}  \n")
@@ -262,16 +262,16 @@ def get_Film_Data_With_Cat(
     # Thời gian bắt đầu kéo
     start_time = time.time()
 
-    print(f"# Thời gian bắt đầu kéo: {start_time} \n")
-    print(f"# Bắt đầu kéo {name_of_cat} \n")
-    print(f"# Đang đặt thông số kéo {num_of_page} trang \n")
+    print(f"# Thoi gian bat dau keo: {start_time} \n")
+    print(f"# Bat dau keo {name_of_cat} \n")
+    print(f"# Dang dat thong so keo {num_of_page} trang \n")
     with open(filename, "a", encoding="utf-8") as file:
         file.write(f"# Time start scan: {start_time} \n")
         file.write(f"# Started scan {name_of_cat} \n")
         file.write(f"# Config scan of {num_of_page} trang \n")
 
     while page_number <= num_of_page:
-        print(f"# Đang lấy trang {page_number} của {name_of_cat}")
+        print(f"# Dang lay trang {page_number} cua {name_of_cat}")
         with open(filename, "a", encoding="utf-8") as file:
             file.write(f"# Get page {page_number} of {name_of_cat} \n")
 
@@ -422,17 +422,17 @@ def get_Film_Data_With_Cat(
     # Thời gian đã trôi qua
     elapsed_time = end_time - start_time
 
-    print(f"# Kéo xong toàn bộ {num_of_page} trang {name_of_cat} ")
-    print(f"# Bắt đầu đẩy dữ liệu vào DB")
+    print(f"# Keo xong toan bo {num_of_page} trang {name_of_cat} ")
+    print(f"# Bat dau day du lieu vao DB")
     push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 1)
-    print(f"# Đẩy xong dữ liệu")
-    print(f"# Thời gian hoàn thành: {elapsed_time} giây")
+    print(f"# Day xong du lieu")
+    print(f"# Thoi gian hoan thanh: {elapsed_time} giay")
 
     with open(filename, "a", encoding="utf-8") as file:
         file.write(f"# Scan all page {num_of_page} of page {name_of_cat}  \n")
         file.write(f"# Start push into DB \n")
         file.write(f"# Done ! \n")
-        file.write(f"# Elapsed time: {elapsed_time} giây \n")
+        file.write(f"# Elapsed time: {elapsed_time} giay \n")
         file.write(f"# Ending # \n")
         file.write(f"#   \n")
         file.write(f"#  ----- \n")
