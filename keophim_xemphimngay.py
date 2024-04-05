@@ -10,7 +10,6 @@ from tqdm import tqdm
 import datetime
 import time
 import subprocess
-import shutil
 
 import os
 
