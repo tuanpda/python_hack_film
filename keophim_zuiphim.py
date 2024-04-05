@@ -299,7 +299,7 @@ def job():
 scheduler = BlockingScheduler()
 
 # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-scheduler.add_job(job, "cron", hour=20, minute=30)
+scheduler.add_job(job, "cron", hour=20, minute=35)
 
 # Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
 scheduler.add_job(job, "interval", hours=4)
