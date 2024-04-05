@@ -98,7 +98,7 @@ def push_data_to_database(category, jsonfile, checkDelete):
 
             # Cập nhật thanh progress bar
             pbar.update(1)
-        print("# Pushed to DB !")
+    print("# Pushed to DB !")
     # Hoàn tất ghi dữ liệu và đóng kết nối
     cnxn.commit()
     # đóng kết nối

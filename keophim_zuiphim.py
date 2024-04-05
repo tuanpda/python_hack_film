@@ -8,7 +8,7 @@ import codecs
 import random
 from tqdm import tqdm
 from datetime import datetime
-
+import os
 import time
 import subprocess
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -21,22 +21,20 @@ current_datetime = datetime.now()
 current_date = current_datetime.strftime("%Y-%m-%d")
 current_time = current_datetime.strftime("%H:%M:%S")
 current_day = current_datetime.strftime("%A")
-# print("Date:", current_date)
-# print("Time:", current_time)
-# print("Day:", current_day)
 
-# Tạo tên file
-filename = f"log_zuiphim.txt"
-# define video database
+# Đường dẫn file log
+filename = r"D:\log_zuiphim.txt"
+
+# Định nghĩa video database
 videos = []
-# open file
+
+# Mở file mới ở thư mục C:\
 with open(filename, "a", encoding="utf-8") as file:
-    file.write("# LOG KEO PHIM \n")
+    file.write("# ----------------------------- \n")
     file.write(f"1: DATE: {current_date} \n")
-    file.write(f"2: TIME: {current_time} \n")
-    file.write(f"3: DAY: {current_day} \n")
-    file.write("4: Server Zuiphim \n")
-    file.write("5: Link: https://zuiphim.org/ \n")
+    file.write(f"2: DAY: {current_day} \n")
+    file.write("3: Server Zuiphim.org \n")
+    file.write("4: Link: https://zuiphim.org/ \n")
     file.write("# Starting ... \n")
 
 
@@ -80,16 +78,20 @@ def get_Film_Data_Newest(
     page_number,
     json_file_name,
 ):
-    print(f"# Bat dau keo {name_of_cat} \n")
-    print(f"# Dang dat thong so keo {num_of_page} trang \n")
+    start_time = datetime.now()
+    print("Job started at:", start_time)
+    
+    print(f"# Start scan {name_of_cat} \n")
+    print(f"# Scan {num_of_page} page \n")
     with open(filename, "a", encoding="utf-8") as file:
+        file.write(f"Job started at: {start_time} \n")
         file.write(f"# Start scan {name_of_cat} \n")
-        file.write(f"# Config scan {num_of_page} trang \n")
+        file.write(f"# Scan {num_of_page} page \n")
 
     while page_number <= num_of_page:
-        print(f"# Get page {page_number} of {name_of_cat}")
+        print(f"# Scan page {page_number} of {name_of_cat}")
         with open(filename, "a", encoding="utf-8") as file:
-            file.write(f"# Get page {page_number} of {name_of_cat} \n")
+            file.write(f"# Scan page {page_number} of {name_of_cat} \n")
 
         # Link get phim
         get_link = f"{link_phim}"
@@ -228,25 +230,26 @@ def get_Film_Data_Newest(
                         ) as write_file:
                             json.dump(videos, write_file, ensure_ascii=False)
 
-        print(f"# Xong trang {page_number} của {name_of_cat} ")
+        print(f"# Done page {page_number} of {name_of_cat} ")
         with open(filename, "a", encoding="utf-8") as file:
             file.write(f"# Done page {page_number} of {name_of_cat}  \n")
         page_number += 1
+        
+    end_time = datetime.now()
+    print("Job finished at:", end_time)
+    
+    elapsed_time = end_time - start_time
+    print("Elapsed time:", elapsed_time)
 
-    print(f"# Keo xong toan bo {num_of_page} trang {name_of_cat} ")
-    print(f"# Day du lieu vao DB")
+    print(f"# Done all {num_of_page} page {name_of_cat} ")
     push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 0)
-    print(f"# Day du lieu vao DB")
-
-    with open(filename, "a", encoding="utf-8") as file:
-        file.write(f"# Keo xong toan bo {num_of_page} trang {name_of_cat}  \n")
-        file.write(f"# Bat dau keo du lieu \n")
-        file.write(f"# Day du lieu vao DB \n")
+    print(f"# Pushed data to database")
     
     with open(filename, "a", encoding="utf-8") as file:
         file.write(f"# Scan all page {num_of_page} of page {name_of_cat}  \n")
         file.write(f"# Start push into DB \n")
-        file.write(f"# Done ! \n")
+        file.write(f"# Done at {end_time} \n")
+        file.write(f"# Elapsed time about {elapsed_time} \n")
 
 
 # Get Films
@@ -259,21 +262,20 @@ def get_Film_Data_With_Cat(
     page_number,
     json_file_name,
 ):
-    # Thời gian bắt đầu kéo
-    start_time = time.time()
-
-    print(f"# Thoi gian bat dau keo: {start_time} \n")
-    print(f"# Bat dau keo {name_of_cat} \n")
-    print(f"# Dang dat thong so keo {num_of_page} trang \n")
+    start_time = datetime.now()
+    print("Job started at:", start_time)
+    
+    print(f"# Start scan {name_of_cat} \n")
+    print(f"# Scan {num_of_page} page \n")
     with open(filename, "a", encoding="utf-8") as file:
-        file.write(f"# Time start scan: {start_time} \n")
-        file.write(f"# Started scan {name_of_cat} \n")
-        file.write(f"# Config scan of {num_of_page} trang \n")
+        file.write(f"Job started at: {start_time} \n")
+        file.write(f"# Start scan {name_of_cat} \n")
+        file.write(f"# Scan {num_of_page} page \n")
 
     while page_number <= num_of_page:
-        print(f"# Dang lay trang {page_number} cua {name_of_cat}")
+        print(f"# Scan page {page_number} of {name_of_cat}")
         with open(filename, "a", encoding="utf-8") as file:
-            file.write(f"# Get page {page_number} of {name_of_cat} \n")
+            file.write(f"# Scan page {page_number} of {name_of_cat} \n")
 
         # Link get phim
         get_link = f"{link_phim}/{code_cat_on_web}?page={page_number}"
@@ -412,36 +414,28 @@ def get_Film_Data_With_Cat(
                         ) as write_file:
                             json.dump(videos, write_file, ensure_ascii=False)
 
-        print(f"# Xong trang {page_number} của {name_of_cat} ")
+        print(f"# Done page {page_number} of {name_of_cat} ")
         with open(filename, "a", encoding="utf-8") as file:
             file.write(f"# Done page {page_number} of {name_of_cat}  \n")
         page_number += 1
 
-    # Thời gian kết thúc
-    end_time = time.time()
-    # Thời gian đã trôi qua
+    end_time = datetime.now()
+    print("Job finished at:", end_time)
+    
     elapsed_time = end_time - start_time
+    print("Elapsed time:", elapsed_time)
 
-    print(f"# Keo xong toan bo {num_of_page} trang {name_of_cat} ")
-    print(f"# Bat dau day du lieu vao DB")
-    push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 1)
-    print(f"# Day xong du lieu")
-    print(f"# Thoi gian hoan thanh: {elapsed_time} giay")
-
+    print(f"# Done all {num_of_page} page {name_of_cat} ")
+    push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 0)
+    
     with open(filename, "a", encoding="utf-8") as file:
         file.write(f"# Scan all page {num_of_page} of page {name_of_cat}  \n")
         file.write(f"# Start push into DB \n")
-        file.write(f"# Done ! \n")
-        file.write(f"# Elapsed time: {elapsed_time} giay \n")
-        file.write(f"# Ending # \n")
-        file.write(f"#   \n")
-        file.write(f"#  ----- \n")
+        file.write(f"# Done at {end_time} \n")
+        file.write(f"# Elapsed time about {elapsed_time} \n")
 
 
 def job():
-    start_time = datetime.now()
-    print("Job started at:", start_time)
-    
     # các thông số cơ bản
     linkphimnewest = "https://zuiphim.org"
     linkphim = "https://zuiphim.org/the-loai"
@@ -497,33 +491,19 @@ def job():
     # GỌI HÀM TRONG FILE KÉO PHIM TẠI SERVER XEMPHIMNGAY.COM
     subprocess.run(["python", "keophim_xemphimngay.py"])
     
-    end_time = datetime.now()
-    print("Job finished at:", end_time)
-    
-    elapsed_time = end_time - start_time
-    print("Elapsed time:", elapsed_time)
-    
-    # Ghi log vào file
-    with open("log_scheduler.txt", "w") as file:
-        file.write("--------------------------------------- \n")
-        file.write("Job started at: " + str(start_time) + "\n")
-        file.write("Job finished at: " + str(end_time) + "\n")
-        file.write("Elapsed time: " + str(elapsed_time) + "\n\n")
 
 
-# # Khởi tạo scheduler
-# scheduler = BlockingScheduler()
+# Khởi tạo scheduler
+scheduler = BlockingScheduler()
 
-# # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-# scheduler.add_job(job, "cron", hour=20, minute=50)
+# Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
+scheduler.add_job(job, "cron", hour=20, minute=50)
 
-# # Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
-# scheduler.add_job(job, "interval", hours=10)
+# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
+scheduler.add_job(job, "interval", hours=10)
 
-# # Bắt đầu lịch trình
-# try:
-#     scheduler.start()
-# except KeyboardInterrupt:
-#     pass
-
-job()
+# Bắt đầu lịch trình
+try:
+    scheduler.start()
+except KeyboardInterrupt:
+    pass

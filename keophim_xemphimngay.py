@@ -10,6 +10,12 @@ from tqdm import tqdm
 import datetime
 import time
 import subprocess
+import shutil
+
+import os
+
+# Đường dẫn đầy đủ của file mới
+filename = r"C:\\log_xemphimngay.txt"
 
 # from file pushdatafilmtosqlserver
 from pushdatafilmtosqlserver import push_data_to_database
