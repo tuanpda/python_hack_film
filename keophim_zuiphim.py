@@ -25,7 +25,7 @@ current_time = current_datetime.strftime("%H:%M:%S")
 current_day = current_datetime.strftime("%A")
 
 # Đường dẫn file log
-filename = r"D:\log_zuiphim.txt"
+filename = r"log_keophim.txt"
 
 # Định nghĩa video database
 videos = []
@@ -499,7 +499,7 @@ def job():
 scheduler = BlockingScheduler()
 
 # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-scheduler.add_job(job, "cron", hour=10, minute=10)
+scheduler.add_job(job, "cron", hour=10, minute=15)
 
 # Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
 scheduler.add_job(job, "interval", hours=4)
