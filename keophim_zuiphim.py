@@ -229,7 +229,7 @@ def get_Film_Data_With_Cat(
                         #     data_links = a_tags[1]  # Lấy phần tử thứ hai
                         # else:
                         #     data_links = ""
-                        print(data_links)
+                        # print(data_links)
                         add_videos(
                             random.randint(1, 10000),
                             title_value,
