@@ -170,7 +170,13 @@ def get_Film_Data_With_Cat(
 
                         find_link = soup_data_wb.find(name="div", class_="flex items-center")
                         a_tags = find_link.find_all("a")
-                        link_movie = a_tags[1]['data-link']
+
+                        link_movie = ''
+                        if len(a_tags) > 1: 
+                            # print(a_tags[1])
+                            link_movie = a_tags[1]['data-link']
+                        else:
+                            link_movie = a_tags[0]['data-link']
                         # print(link_movie)
 
                         add_videos(
@@ -219,7 +225,7 @@ def get_Film_Data_With_Cat(
 
 # các thông số cơ bản
 linkphim = "https://xemphimngay.com/the-loai"
-num_of_page_value = 20
+num_of_page_value = 30
 page_number_value = 1
 server='https://xemphimngay.com'
 # Khai báo các thông số cho từng loại phim

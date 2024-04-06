@@ -70,6 +70,7 @@ def add_videos(
     new_video["server"] = server
     videos.append(new_video)
 
+
 # Get Films
 def get_Film_Data_With_Cat(
     link_phim,
@@ -82,7 +83,7 @@ def get_Film_Data_With_Cat(
 ):
     start_time = datetime.now()
     print("Job started at:", start_time)
-    
+
     print(f"# Start scan {name_of_cat} \n")
     print(f"# Scan {num_of_page} page \n")
     with open(filename, "a", encoding="utf-8") as file:
@@ -204,13 +205,31 @@ def get_Film_Data_With_Cat(
                                 "a", class_="btn btn-default streaming-server"
                             )
                         except AttributeError:
-                            a_tags = " "
+                            a_tags = []
+                            
+                        data_links = ''
+                        if len(a_tags) > 1: 
+                            # print(a_tags[1])
+                            data_links = a_tags[1]['data-link']
+                        else:
+                            data_links = a_tags[0]['data-link']
+                            
+                            # for a_tag in a_tags[1:]:
+                            #     # print(a_tag['data-link'])
+                            #     data_links = a_tag['data-link']
                         # Lấy giá trị của thuộc tính 'data-link' từ mỗi thẻ 'a'
-                        try:
-                            data_links = [a["data-link"] for a in a_tags]
-                        except AttributeError:
-                            data_links = " "
-
+                        # try:
+                        #     data_links = [a["data-link"] for a in a_tags]
+                        #     # data_links = a_tags[1]["data-link"]
+                        # except AttributeError:
+                        #     data_links = " "
+                        # if len(a_tags) == 1:
+                        #     data_links = a_tags[0]  # Lấy phần tử đầu tiên
+                        # elif len(a_tags) >= 2:
+                        #     data_links = a_tags[1]  # Lấy phần tử thứ hai
+                        # else:
+                        #     data_links = ""
+                        print(data_links)
                         add_videos(
                             random.randint(1, 10000),
                             title_value,
@@ -239,13 +258,13 @@ def get_Film_Data_With_Cat(
 
     end_time = datetime.now()
     print("Job finished at:", end_time)
-    
+
     elapsed_time = end_time - start_time
     print("Elapsed time:", elapsed_time)
 
     print(f"# Done all {num_of_page} page {name_of_cat} ")
     push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 1)
-    
+
     with open(filename, "a", encoding="utf-8") as file:
         file.write(f"# Scan all page {num_of_page} of page {name_of_cat}  \n")
         file.write(f"# Start push into DB \n")
@@ -256,10 +275,10 @@ def get_Film_Data_With_Cat(
 def job():
     # các thông số cơ bản
     linkphim = "https://zuiphim.org/the-loai"
-    num_of_page_value = 20
+    num_of_page_value = 50
     page_number_value = 1
-    server='https://zuiphim.org'
-    
+    server = "https://zuiphim.org"
+
     # GỌI HÀM GET PHIM THEO THỂ LOẠI
     # Khai báo các thông số cho từng loại phim
     film_types = [
@@ -298,22 +317,21 @@ def job():
 
     # GỌI HÀM TRONG FILE KÉO PHIM TẠI SERVER XEMPHIMNGAY.COM
     subprocess.run(["python", "keophim_xemphimngay.py"])
-    
 
 
-# Khởi tạo scheduler
-scheduler = BlockingScheduler()
+# # Khởi tạo scheduler
+# scheduler = BlockingScheduler()
 
-# Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-scheduler.add_job(job, "cron", hour=9, minute=5)
+# # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
+# scheduler.add_job(job, "cron", hour=14, minute=15)
 
-# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
-scheduler.add_job(job, "interval", hours=4)
+# # Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
+# scheduler.add_job(job, "interval", hours=4)
 
-# Bắt đầu lịch trình
-try:
-    scheduler.start()
-except KeyboardInterrupt:
-    pass
+# # Bắt đầu lịch trình
+# try:
+#     scheduler.start()
+# except KeyboardInterrupt:
+#     pass
 
-# job()
+job()

@@ -77,7 +77,7 @@ def push_data_to_database(category, jsonfile, checkDelete):
                 cursor.execute(
                     """
                     INSERT INTO movies (title, country, year, content, category, category_name, link, image, actor, streamsUrl, server, createdAt, createdBy)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)
                 """,
                     (
                         item["title"],
@@ -89,7 +89,7 @@ def push_data_to_database(category, jsonfile, checkDelete):
                         item["link"],
                         item["image"],
                         item["actor"],
-                        streams_url_str,
+                        item["streamsUrl"],
                         item["server"],
                         current_datetime,
                         "commitByBot",
@@ -103,3 +103,6 @@ def push_data_to_database(category, jsonfile, checkDelete):
     cnxn.commit()
     # đóng kết nối
     cnxn.close()
+    
+    
+
