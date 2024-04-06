@@ -13,7 +13,7 @@ import subprocess
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 # from file pushdatafilmtosqlserver
-from pushdatafilmtosqlserver import push_data_to_database
+from pushdatafilmseries import push_data_to_database
 
 # get time
 current_datetime = datetime.now()
@@ -26,7 +26,6 @@ videos = []
 
 # add video
 def add_videos(
-    _id,
     title,
     country,
     year,
@@ -38,9 +37,12 @@ def add_videos(
     actor,
     streamsUrl,
     server,
+    tongsotap,
+    thoiluong,
+    status,
+    tapso,
 ):
     new_video = {}
-    new_video["_id"] = _id
     new_video["title"] = title
     new_video["country"] = country
     new_video["year"] = year
@@ -52,38 +54,143 @@ def add_videos(
     new_video["actor"] = actor
     new_video["streamsUrl"] = streamsUrl
     new_video["server"] = server
+    new_video["tongsotap"] = tongsotap
+    new_video["thoiluong"] = thoiluong
+    new_video["status"] = status
+    new_video["tapso"] = tapso
     videos.append(new_video)
 
 
-link = "https://phimhay.ink/danh-sach/phim-bo"
+num_of_page = 2
+page_number = 1
+link_phim = 'https://phimhay.ink/danh-sach/phim-bo'
 
-response = requests.get(link)
-response.encoding = response.apparent_encoding
-data_web = response.text
+while page_number <= num_of_page:
 
-# Sử dụng BeautifulSoup để phân tích HTML
-soup = BeautifulSoup(data_web, "html.parser")
+    link = "https://phimhay.ink/danh-sach/phim-bo"
+    # Link get phim
+    link = f"{link_phim}/?page={page_number}"
 
-# Tìm tất cả các phần tử <div> có class là "bs"
-article_div_videos = soup.find(
-    name="article",
-    class_="bs",
-)
+    response = requests.get(link)
+    response.encoding = response.apparent_encoding
+    data_web = response.text
 
-print(article_div_videos)
+    # Sử dụng BeautifulSoup để phân tích HTML
+    soup = BeautifulSoup(data_web, "html.parser")
 
-# videos = article_div_videos.find_all(name="div", class_="swiper-slide slider__item")
+    # Tìm tất cả các phần tử <div> có class là "bs"
+    article_div_videos_series_movies = soup.find_all(
+        name="article",
+        class_="bs",
+    )
+    # print(article_div_videos)
 
-# for video in videos:
-#     href_video = video.find('a')['href']
-#     title_video = video.find('a')['title']
-#     image_video = video.find('img')['src']
-#     content_video = video.find('p').text    
-#     # print(href_video)
-#     # print(title_video)
-#     # print(image_video)
-#     # print(content_video)
-    
-#     # access page video detail
-#     get_detail_movie = requests.get(href_video)
-#     print(get_detail_movie.status_code)
+    for article_div_videos in article_div_videos_series_movies:
+        # thông tin ban đầu của video
+        href_video = article_div_videos.find("a")["href"]
+        title_video = article_div_videos.find("a")["title"]
+        image_video = article_div_videos.find(name="img")["src"]
+        category_video = article_div_videos.find(name="div", class_="typez Drama").text.strip()
+        tapso_video = (
+            article_div_videos.find(name="div", class_="bt")
+            .find(name="span", class_="epx")
+            .text.strip()
+        )
+        tapso_number = tapso_video.split()[-1]
+
+        # đến link detail video
+        get_detail_movie = requests.get(href_video)
+        # print(get_detail_movie.status_code)
+        data_web_detail = get_detail_movie.text
+        soup_movie_detail = BeautifulSoup(data_web_detail, "html.parser")
+
+
+        # thông tin movie
+        info_movie = []
+        spans_tag = soup_movie_detail.find(name="div", class_="spe")("span")
+        for span_tag in spans_tag:
+            content = span_tag.get_text(strip=True)
+            info_movie.append(content.split(":")[1].strip())
+            # print(content.split(':')[1].strip())
+        # print(info_movie)
+
+        # link media
+        link_href = soup_movie_detail.find(name="a", class_="bookmark")["href"]
+        # print(link_href)
+
+        # get media tập hiện tại
+        get_media_movie = requests.get(link_href)
+        # print(get_media_movie.status_code)
+        movie_detail = get_media_movie.text
+        get_movie_detail = BeautifulSoup(movie_detail, "html.parser")
+        li_tags = get_movie_detail.find("li", class_="episode")
+        a_tags = li_tags.find_all("a")
+        # print(a_tags[1]['data-link'])
+
+        # get link media tập hiện tại
+        link_media = a_tags[1]["data-link"]
+
+        # get các tập khác của film
+        series_movie_list = soup_movie_detail.find(name="div", class_="eplister")("li")
+        # số lượng phim trong series_movie_list
+        total_series_movies = len(series_movie_list)
+        # bỏ qua tập hiện tại
+        first_element_skipped = False
+        for i, ser_mov in tqdm(enumerate(series_movie_list, start=1), total=total_series_movies):
+            if i == 1:
+                continue  # Bỏ qua phần tử đầu tiên và tiếp tục vòng lặp
+            link_tap = ser_mov.find("a")["href"]
+            tap_so = ser_mov.find("div", class_="epl-num").text
+            href_link_tap = requests.get(link_tap)
+            mv_dt = href_link_tap.text
+            get_tapkhac = BeautifulSoup(mv_dt, "html.parser")
+            li_tags = get_tapkhac.find("li", class_="episode")
+            a_tags = li_tags.find_all("a")
+            # get link media tập hiện tại
+            link_media = a_tags[1]["data-link"]
+            
+            # add video các tập trong seri
+            add_videos(
+                title_video,
+                info_movie[3],
+                info_movie[1],
+                "",
+                "SeriesMovies",
+                "Phim bộ",
+                href_video,
+                image_video,
+                info_movie[7],
+                link_media,
+                "https://phimhay.ink/",
+                info_movie[5],
+                info_movie[2],
+                info_movie[0],
+                tap_so,
+            )
+
+        add_videos(
+            title_video,
+            info_movie[3],
+            info_movie[1],
+            "",
+            "SeriesMovies",
+            "Phim bộ",
+            href_video,
+            image_video,
+            info_movie[7],
+            link_media,
+            "https://phimhay.ink/",
+            info_movie[5],
+            info_movie[2],
+            info_movie[0],
+            tapso_number,
+        )
+        
+    page_number += 1
+
+# ghi ra file json
+with open(f"phimhay_phimbo.json", "w", encoding="utf-8") as write_file:
+    json.dump(videos, write_file, ensure_ascii=False)
+
+
+push_data_to_database("phimhay_phimbo.json")

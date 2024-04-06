@@ -244,7 +244,7 @@ def get_Film_Data_With_Cat(
     print("Elapsed time:", elapsed_time)
 
     print(f"# Done all {num_of_page} page {name_of_cat} ")
-    push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 0)
+    push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 1)
     
     with open(filename, "a", encoding="utf-8") as file:
         file.write(f"# Scan all page {num_of_page} of page {name_of_cat}  \n")
@@ -254,6 +254,12 @@ def get_Film_Data_With_Cat(
 
 
 def job():
+    # các thông số cơ bản
+    linkphim = "https://zuiphim.org/the-loai"
+    num_of_page_value = 20
+    page_number_value = 1
+    server='https://zuiphim.org'
+    
     # GỌI HÀM GET PHIM THEO THỂ LOẠI
     # Khai báo các thông số cho từng loại phim
     film_types = [
@@ -299,7 +305,7 @@ def job():
 scheduler = BlockingScheduler()
 
 # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-scheduler.add_job(job, "cron", hour=20, minute=35)
+scheduler.add_job(job, "cron", hour=9, minute=15)
 
 # Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
 scheduler.add_job(job, "interval", hours=4)
@@ -309,3 +315,5 @@ try:
     scheduler.start()
 except KeyboardInterrupt:
     pass
+
+# job()

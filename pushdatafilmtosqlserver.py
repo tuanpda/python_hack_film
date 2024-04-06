@@ -67,11 +67,11 @@ def push_data_to_database(category, jsonfile, checkDelete):
 
             current_datetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            streams_url_str = ""
-            if item["server"] == "https://zuiphim.org/":
-                streams_url_str = ",".join(item["streamsUrl"])
-            else:
-                streams_url_str = item["streamsUrl"]
+            # streams_url_str = ""
+            # if item["server"] == "https://zuiphim.org/":
+            #     streams_url_str = ",".join(item["streamsUrl"])
+            # else:
+            #     streams_url_str = item["streamsUrl"]
             # Nếu tiêu đề chưa tồn tại, thực hiện chèn dữ liệu mới
             if not existing_entry:
                 cursor.execute(
