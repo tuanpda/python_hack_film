@@ -317,15 +317,16 @@ def job():
 
     # GỌI HÀM TRONG FILE KÉO PHIM TẠI SERVER XEMPHIMNGAY.COM
     subprocess.run(["python", "18plusphimhay.py"])
+    subprocess.run(["python", "keo_phimbo.py"])
 
 
 # Khởi tạo scheduler
 scheduler = BlockingScheduler()
 
-# Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-scheduler.add_job(job, "cron", hour=9, minute=0)
+# Lập lịch cho công việc chạy vào mỗi ngày vào 6h sáng
+scheduler.add_job(job, "cron", hour=6, minute=0)
 
-# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
+# Lập lịch cho công việc chạy cứ mỗi 2 tiếng kéo 1 lần
 scheduler.add_job(job, "interval", hours=2)
 
 # Bắt đầu lịch trình
