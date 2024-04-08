@@ -62,12 +62,11 @@ def add_videos(
     videos.append(new_video)
 
 
-
 def job():
     num_of_page = 3
     page_number = 1
     link_phim = "https://phimhay.ink/danh-sach/phim-bo"
-    
+
     while page_number <= num_of_page:
 
         link = "https://phimhay.ink/danh-sach/phim-bo"
@@ -140,9 +139,9 @@ def job():
                     link_media = a_tags[1]["data-link"]
 
                     # get các tập khác của film
-                    series_movie_list = soup_movie_detail.find(name="div", class_="eplister")(
-                        "li"
-                    )
+                    series_movie_list = soup_movie_detail.find(
+                        name="div", class_="eplister"
+                    )("li")
                     # số lượng phim trong series_movie_list
                     total_series_movies = len(series_movie_list)
                     # bỏ qua tập hiện tại
@@ -187,7 +186,7 @@ def job():
                     title_video,
                     info_movie[3],
                     info_movie[1],
-                    "",
+                    "Phim 18 + không dành cho trẻ chưa đến tuổi vị thành niên. App sẽ không chịu trách nhiệm quản lý vấn đề này. Kiến nghị phụ huynh tự quản !",
                     "SeriesMovies",
                     "Phim bộ",
                     href_video,
@@ -200,7 +199,7 @@ def job():
                     info_movie[0],
                     tapso_number,
                 )
-        print(f'Xong trang: ', page_number)
+        print(f"Xong trang: ", page_number)
         page_number += 1
 
         # ghi ra file json
@@ -208,10 +207,8 @@ def job():
             json.dump(videos, write_file, ensure_ascii=False)
 
         push_data_to_database("phimhay_phimbo.json")
-    
-    
-    
-    
+
+
 # # Khởi tạo scheduler
 # scheduler = BlockingScheduler()
 
