@@ -320,8 +320,8 @@ def job():
         function(*args)
 
     # GỌI HÀM TRONG FILE KÉO PHIM TẠI SERVER XEMPHIMNGAY.COM
-    subprocess.run(["python", "18plusphimhay.py"])
-    subprocess.run(["python", "keo_phimbo.py"])
+    # subprocess.run(["python", "18plusphimhay.py"])
+    # subprocess.run(["python", "keo_phimbo.py"])
 
 
 # # Khởi tạo scheduler
