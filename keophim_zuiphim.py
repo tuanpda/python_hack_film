@@ -275,7 +275,7 @@ def get_Film_Data_With_Cat(
 def job():
     # các thông số cơ bản
     linkphim = "https://zuiphim.org/the-loai"
-    num_of_page_value = 50
+    num_of_page_value = 5
     page_number_value = 1
     server = "https://zuiphim.org"
 
@@ -316,22 +316,22 @@ def job():
         function(*args)
 
     # GỌI HÀM TRONG FILE KÉO PHIM TẠI SERVER XEMPHIMNGAY.COM
-    subprocess.run(["python", "keophim_xemphimngay.py"])
+    subprocess.run(["python", "18plusphimhay.py"])
 
 
-# # Khởi tạo scheduler
-# scheduler = BlockingScheduler()
+# Khởi tạo scheduler
+scheduler = BlockingScheduler()
 
-# # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-# scheduler.add_job(job, "cron", hour=14, minute=15)
+# Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
+scheduler.add_job(job, "cron", hour=9, minute=0)
 
-# # Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
-# scheduler.add_job(job, "interval", hours=4)
+# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
+scheduler.add_job(job, "interval", hours=2)
 
-# # Bắt đầu lịch trình
-# try:
-#     scheduler.start()
-# except KeyboardInterrupt:
-#     pass
+# Bắt đầu lịch trình
+try:
+    scheduler.start()
+except KeyboardInterrupt:
+    pass
 
-job()
+# job()

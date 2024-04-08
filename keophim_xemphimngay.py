@@ -107,96 +107,97 @@ def get_Film_Data_With_Cat(
             name="div",
             class_="grid grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-2",
         )
-        find_movies = article_div_video.find_all("a")
-        for find_movie in tqdm(find_movies, desc="Getting up to data", unit=" article"):
-            # get thông tin push CSDL
-            href_movie = find_movie["href"]
-            title_movie = find_movie["title"]
-            image_movie = find_movie.find("img")["data-src"]
+        if article_div_video is not None:
+            find_movies = article_div_video.find_all("a")
+            for find_movie in tqdm(find_movies, desc="Getting up to data", unit=" article"):
+                # get thông tin push CSDL
+                href_movie = find_movie["href"]
+                title_movie = find_movie["title"]
+                image_movie = find_movie.find("img")["data-src"]
 
-            # get đến trang để lấy dữ liệu video
-            get_movie = requests.get(href_movie)
-            if get_movie.status_code == 200:
-                data_web_movie = get_movie.text
-                soup_data_movie = BeautifulSoup(data_web_movie, "html.parser")
+                # get đến trang để lấy dữ liệu video
+                get_movie = requests.get(href_movie)
+                if get_movie.status_code == 200:
+                    data_web_movie = get_movie.text
+                    soup_data_movie = BeautifulSoup(data_web_movie, "html.parser")
 
-                # lấy thông tin cơ bản về phim
-                ul_info_films = soup_data_movie.find(
-                    name="ul",
-                    attrs={
-                        "class": "grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mt-2 gap-2"
-                    },
-                )
-                if ul_info_films is not None:
-                    li_tags = ul_info_films.find_all(name="li")
-                    # print(li_tags)
-                    infos_movie = []
-                    for li_tag in li_tags:
-                        text = li_tag.find("span").text.strip()
-                        infos_movie.append(text)
+                    # lấy thông tin cơ bản về phim
+                    ul_info_films = soup_data_movie.find(
+                        name="ul",
+                        attrs={
+                            "class": "grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mt-2 gap-2"
+                        },
+                    )
+                    if ul_info_films is not None:
+                        li_tags = ul_info_films.find_all(name="li")
+                        # print(li_tags)
+                        infos_movie = []
+                        for li_tag in li_tags:
+                            text = li_tag.find("span").text.strip()
+                            infos_movie.append(text)
 
-                # thời lượng
-                # print(infos_movie[3])
-                # # year
-                # print(infos_movie[4])
-                # # quốc gia
-                # print(infos_movie[7])
-                # # diễn viên
-                # print(infos_movie[8])
-                # # tác giả
-                # print(infos_movie[9])
+                    # thời lượng
+                    # print(infos_movie[3])
+                    # # year
+                    # print(infos_movie[4])
+                    # # quốc gia
+                    # print(infos_movie[7])
+                    # # diễn viên
+                    # print(infos_movie[8])
+                    # # tác giả
+                    # print(infos_movie[9])
 
-                # Nội dung phim
-                try:
-                    content_movie = soup_data_movie.find(
-                        name="div", attrs={"class": "whitespace-pre-wrap"}
-                    ).text
-                except AttributeError:
-                    content_movie = ""
+                    # Nội dung phim
+                    try:
+                        content_movie = soup_data_movie.find(
+                            name="div", attrs={"class": "whitespace-pre-wrap"}
+                        ).text
+                    except AttributeError:
+                        content_movie = ""
 
-                # tìm nút watch video mai sẽ xem xét việc nút có tồn tại hay không??
-                fin_button_watch = soup_data_movie.find(
-                    name="div",
-                    class_="absolute bottom-4 text-center w-full bg-main-700 bg-opacity-40 py-2 m-0",
-                )
-                link_movie_check = fin_button_watch.find("a")
-                if link_movie_check is not None:
-                    link_to_watch = fin_button_watch.find("a")["href"]
-                    # đi đến link để lấy link media
-                    get_to_media_movie = requests.get(link_to_watch)
-                    if get_to_media_movie.status_code == 200:
-                        data_wb = get_to_media_movie.text
-                        soup_data_wb = BeautifulSoup(data_wb, "html.parser")
+                    # tìm nút watch video mai sẽ xem xét việc nút có tồn tại hay không??
+                    fin_button_watch = soup_data_movie.find(
+                        name="div",
+                        class_="absolute bottom-4 text-center w-full bg-main-700 bg-opacity-40 py-2 m-0",
+                    )
+                    link_movie_check = fin_button_watch.find("a")
+                    if link_movie_check is not None:
+                        link_to_watch = fin_button_watch.find("a")["href"]
+                        # đi đến link để lấy link media
+                        get_to_media_movie = requests.get(link_to_watch)
+                        if get_to_media_movie.status_code == 200:
+                            data_wb = get_to_media_movie.text
+                            soup_data_wb = BeautifulSoup(data_wb, "html.parser")
 
-                        find_link = soup_data_wb.find(name="div", class_="flex items-center")
-                        a_tags = find_link.find_all("a")
+                            find_link = soup_data_wb.find(name="div", class_="flex items-center")
+                            a_tags = find_link.find_all("a")
 
-                        link_movie = ''
-                        if len(a_tags) > 1: 
-                            # print(a_tags[1])
-                            link_movie = a_tags[1]['data-link']
-                        else:
-                            link_movie = a_tags[0]['data-link']
-                        # print(link_movie)
+                            link_movie = ''
+                            if len(a_tags) > 1: 
+                                # print(a_tags[1])
+                                link_movie = a_tags[1]['data-link']
+                            else:
+                                link_movie = a_tags[0]['data-link']
+                            # print(link_movie)
 
-                        add_videos(
-                            random.randint(1, 10000),
-                            title_movie,
-                            infos_movie[7],
-                            infos_movie[4],
-                            content_movie,
-                            code_name_cat,
-                            name_of_cat,
-                            href_movie,
-                            image_movie,
-                            infos_movie[8],
-                            link_movie,
-                            'https://xemphimngay.com/'
-                        )
+                            add_videos(
+                                random.randint(1, 10000),
+                                title_movie,
+                                infos_movie[7],
+                                infos_movie[4],
+                                content_movie,
+                                code_name_cat,
+                                name_of_cat,
+                                href_movie,
+                                image_movie,
+                                infos_movie[8],
+                                link_movie,
+                                'https://xemphimngay.com/'
+                            )
 
-                        # ghi ra file json
-                        with open(f"{json_file_name}", "w", encoding="utf-8") as write_file:
-                            json.dump(videos, write_file, ensure_ascii=False)
+                            # ghi ra file json
+                            with open(f"{json_file_name}", "w", encoding="utf-8") as write_file:
+                                json.dump(videos, write_file, ensure_ascii=False)
 
         print(f"# Xong trang {page_number} of {name_of_cat} ")
         with open(filename, "a", encoding="utf-8") as file:
@@ -230,14 +231,14 @@ page_number_value = 1
 server='https://xemphimngay.com'
 # Khai báo các thông số cho từng loại phim
 film_types = [
-    ("ActionFilm", "Phim hành động", "hanh-dong", "xemphimngay_phimhanhdong.json"),
+    # ("ActionFilm", "Phim hành động", "hanh-dong", "xemphimngay_phimhanhdong.json"),
     ("MartialFilm", "Phim võ thuật", "vo-thuat", "xemphimngay_phimvothuat.json"),
-    ("AnimelFilm", "Phim hoạt hình", "hoat-hinh", "xemphimngay_phimhoathinh.json"),
-    ("HorrorFilm", "Phim kinh dị", "kinh-di", "xemphimngay_phimkinhdi.json"),
-    ("WarFilm", "Phim chiến tranh", "chien-tranh", "xemphimngay_phimchientranh.json"),
-    ("PolFilm", "Phim hình sự", "hinh-su", "xemphimngay_phimhinhsu.json"),
-    ("LoveFilm", "Phim tình cảm", "tinh-cam", "xemphimngay_phimtinhcam.json"),
-    ("StudentFilm", "Phim học đường", "hoc-duong", "xemphimngay_phimhocduong.json"),
+    # ("AnimelFilm", "Phim hoạt hình", "hoat-hinh", "xemphimngay_phimhoathinh.json"),
+    # ("HorrorFilm", "Phim kinh dị", "kinh-di", "xemphimngay_phimkinhdi.json"),
+    # ("WarFilm", "Phim chiến tranh", "chien-tranh", "xemphimngay_phimchientranh.json"),
+    # ("PolFilm", "Phim hình sự", "hinh-su", "xemphimngay_phimhinhsu.json"),
+    # ("LoveFilm", "Phim tình cảm", "tinh-cam", "xemphimngay_phimtinhcam.json"),
+    # ("StudentFilm", "Phim học đường", "hoc-duong", "xemphimngay_phimhocduong.json"),
 ]
 
 functions_to_call = []

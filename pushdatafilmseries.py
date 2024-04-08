@@ -53,42 +53,44 @@ def push_data_to_database(jsonfile):
         for item in data:
             if not item["image"].startswith("http"):
                 item["image"] = "https://phimhay.ink/" + item["image"]
-                
+
             # Kiểm tra xem tiêu đề đã tồn tại trong bảng chưa
-            # cursor.execute(
-            #     "SELECT * FROM movies_series WHERE title = ?", (item["title"],)
-            # )
-            # existing_entry = cursor.fetchone() đoạn này có thể sẽ phải tạo key để xem các phim tồn tại như nào?
+            cursor.execute(
+                "SELECT * FROM movies_series WHERE title = ? AND tapso = ?",
+                (item["title"], item["tapso"]),
+            )
+            existing_entry = cursor.fetchone()
 
             current_datetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             # Nếu tiêu đề chưa tồn tại, thực hiện chèn dữ liệu mới
 
-            cursor.execute(
-                """
-                INSERT INTO movies_series (title, country, year, content, category, category_name, link, image, actor, streamsUrl, server, tongsotap, thoiluong, status, tapso, createdAt, createdBy)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)
-            """,
-                (
-                    item["title"],
-                    item["country"],
-                    item["year"],
-                    item["content"],
-                    item["category"],
-                    item["category_name"],
-                    item["link"],
-                    item["image"],
-                    item["actor"],
-                    item["streamsUrl"],
-                    item["server"],
-                    item["tongsotap"],
-                    item["thoiluong"],
-                    item["status"],
-                    item["tapso"],
-                    current_datetime,
-                    "commitByBot",
-                ),
-            )
+            if not existing_entry:
+                cursor.execute(
+                    """
+                    INSERT INTO movies_series (title, country, year, content, category, category_name, link, image, actor, streamsUrl, server, tongsotap, thoiluong, status, tapso, createdAt, createdBy)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)
+                """,
+                    (
+                        item["title"],
+                        item["country"],
+                        item["year"],
+                        item["content"],
+                        item["category"],
+                        item["category_name"],
+                        item["link"],
+                        item["image"],
+                        item["actor"],
+                        item["streamsUrl"],
+                        item["server"],
+                        item["tongsotap"],
+                        item["thoiluong"],
+                        item["status"],
+                        item["tapso"],
+                        current_datetime,
+                        "commitByBot",
+                    ),
+                )
 
             # Cập nhật thanh progress bar
             pbar.update(1)
