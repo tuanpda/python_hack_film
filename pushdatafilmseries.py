@@ -52,7 +52,7 @@ def push_data_to_database(jsonfile):
         # Lặp qua từng mục trong danh sách dữ liệu và chèn chúng vào bảng
         for item in data:
             if not item["image"].startswith("http"):
-                item["image"] = "https://phimhay.ink/" + item["image"]
+                item["image"] = "https://phimhay.ink" + item["image"]
 
             # Kiểm tra xem tiêu đề đã tồn tại trong bảng chưa
             cursor.execute(

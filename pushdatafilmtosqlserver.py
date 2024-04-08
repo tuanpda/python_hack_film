@@ -59,7 +59,10 @@ def push_data_to_database(category, jsonfile, checkDelete):
         # Lặp qua từng mục trong danh sách dữ liệu và chèn chúng vào bảng
         for item in data:
             if not item["image"].startswith("http"):
-                item["image"] = "https://zuiphim.org/" + item["image"]
+                if item["server"] == 'https://zuiphim.org/':
+                    item["image"] = "https://zuiphim.org" + item["image"]
+                else:
+                    item["image"] = "https://phimhay.ink" + item["image"]
 
             # Kiểm tra xem tiêu đề đã tồn tại trong bảng chưa
             cursor.execute("SELECT * FROM movies WHERE title = ?", (item["title"],))

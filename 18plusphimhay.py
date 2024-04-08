@@ -55,14 +55,14 @@ def add_videos(
 
     videos.append(new_video)
 
-# đã kéo trang 20
-num_of_page = 5
-page_number = 1
-link_phim = "https://phimhay.ink/the-loai/phim-18"
 
 def job():
+    num_of_page = 5
+    page_number = 1
+    link_phim = "https://phimhay.ink/the-loai/phim-18"
+    
+    
     while page_number <= num_of_page:
-
         # Link get phim
         link = f"{link_phim}/?page={page_number}"
 
@@ -83,7 +83,7 @@ def job():
             # thông tin ban đầu của video
             href_video = article_div_videos.find("a")["href"]
             title_video = article_div_videos.find("a")["title"]
-            print(title_video)
+            # print(title_video)
             image_video = article_div_videos.find(name="img")["src"]
 
             # đến link detail video
@@ -104,7 +104,7 @@ def job():
                 # link media
                 link_href = ""
                 get_hrf = soup_movie_detail.find(name="a", class_="bookmark")
-                print(get_hrf)
+                # print(get_hrf)
                 if get_hrf is not None:
                     link_href = get_hrf["href"]
                     # get media tập hiện tại
@@ -161,3 +161,5 @@ def job():
 #     scheduler.start()
 # except KeyboardInterrupt:
 #     pass
+
+job()
