@@ -190,7 +190,7 @@ def job():
                     title_video,
                     info_movie[3],
                     info_movie[1],
-                    "Phim 18 + không dành cho trẻ chưa đến tuổi vị thành niên. App sẽ không chịu trách nhiệm quản lý vấn đề này. Kiến nghị phụ huynh tự quản !",
+                    "",
                     "SeriesMovies",
                     "Phim bộ",
                     href_video,

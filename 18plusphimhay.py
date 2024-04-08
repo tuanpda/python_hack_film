@@ -57,7 +57,7 @@ def add_videos(
 
 
 def job():
-    num_of_page = 50
+    num_of_page = 5
     page_number = 1
     link_phim = "https://phimhay.ink/the-loai/phim-18"
     
@@ -129,7 +129,7 @@ def job():
                         title_video,
                         info_movie[3],
                         info_movie[1],
-                        "",
+                        "Phim 18 + không dành cho trẻ chưa đến tuổi vị thành niên. App sẽ không chịu trách nhiệm quản lý vấn đề này. Kiến nghị phụ huynh tự quản !",
                         "18PlusFilm",
                         "Phim 18Plus",
                         href_video,
