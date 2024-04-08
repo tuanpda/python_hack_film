@@ -57,7 +57,7 @@ def add_videos(
 
 
 def job():
-    num_of_page = 5
+    num_of_page = 50
     page_number = 1
     link_phim = "https://phimhay.ink/the-loai/phim-18"
     
@@ -119,8 +119,11 @@ def job():
                         # print(a_tags[1]['data-link'])
 
                         # get link media tập hiện tại
-                        link_media = a_tags[1]["data-link"]
-
+                        link_media = ''
+                        for a_tag in a_tags:
+                            if a_tag["data-type"] == "embed":
+                                link_media = a_tag["data-link"]
+                        # print(link_media)
 
                     add_videos(
                         title_video,

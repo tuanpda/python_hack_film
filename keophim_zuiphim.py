@@ -208,11 +208,15 @@ def get_Film_Data_With_Cat(
                             a_tags = []
                             
                         data_links = ''
-                        if len(a_tags) > 1: 
-                            # print(a_tags[1])
-                            data_links = a_tags[1]['data-link']
-                        else:
-                            data_links = a_tags[0]['data-link']
+                        for a_tag in a_tags:
+                            # print(a_tag)
+                            if a_tag["data-type"] == "embed":
+                                data_links = a_tag["data-link"]
+                        # if len(a_tags) > 1: 
+                        #     # print(a_tags[1])
+                        #     data_links = a_tags[1]['data-link']
+                        # else:
+                        #     data_links = a_tags[0]['data-link']
                             
                             # for a_tag in a_tags[1:]:
                             #     # print(a_tag['data-link'])
@@ -275,7 +279,7 @@ def get_Film_Data_With_Cat(
 def job():
     # các thông số cơ bản
     linkphim = "https://zuiphim.org/the-loai"
-    num_of_page_value = 5
+    num_of_page_value = 50
     page_number_value = 1
     server = "https://zuiphim.org"
 
@@ -320,19 +324,19 @@ def job():
     subprocess.run(["python", "keo_phimbo.py"])
 
 
-# Khởi tạo scheduler
-scheduler = BlockingScheduler()
+# # Khởi tạo scheduler
+# scheduler = BlockingScheduler()
 
-# Lập lịch cho công việc chạy vào mỗi ngày vào 6h sáng
-scheduler.add_job(job, "cron", hour=6, minute=0)
+# # Lập lịch cho công việc chạy vào mỗi ngày vào 6h sáng
+# scheduler.add_job(job, "cron", hour=6, minute=0)
 
-# Lập lịch cho công việc chạy cứ mỗi 2 tiếng kéo 1 lần
-scheduler.add_job(job, "interval", hours=2)
+# # Lập lịch cho công việc chạy cứ mỗi 2 tiếng kéo 1 lần
+# scheduler.add_job(job, "interval", hours=2)
 
-# Bắt đầu lịch trình
-try:
-    scheduler.start()
-except KeyboardInterrupt:
-    pass
+# # Bắt đầu lịch trình
+# try:
+#     scheduler.start()
+# except KeyboardInterrupt:
+#     pass
 
-# job()
+job()
