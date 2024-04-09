@@ -183,17 +183,17 @@ def job():
         ("LoveFilm", "Phim tình cảm", "tinh-cam", "phimhay.json"),
         ("StudentFilm", "Phim học đường", "hoc-duong", "phimhay.json"),
                 
-        ("SportFilm", "Phim thể thao", "the-thao", "phimhay.json"),
-        ("FictionlFilm", "Phim viễn tưởng", "vien-tuong", "phimhay.json"),
-        ("ClassicFilm", "Phim kinh điển", "kinh-dien", "phimhay_kinhdien.json"),
-        ("SoulFilm", "Phim tâm lý", "tam-ly", "phimhay_tamly.json"),
-        ("MusicFilm", "Phim âm nhạc", "am-nhac", "phimhay_amnhac.json"),
-        ("SecretFilm", "Phim bí ẩn", "bi-an", "phimhay_bian.json"),
-        ("CotrangFilm", "Phim cổ trang", "co-trang", "phimhay_cotrang.json"),
-        ("FunnyFilm", "Phim hài hước", "hai-huoc", "phimhay_haihuoc.json"),
-        ("ChinhkichFilm", "Phim chính kịch", "chinh-kich", "phimhay_chinhkich.json"),
-        ("ThanthoaiFilm", "Phim thần thoại", "than-thoai", "phimhay_thanthoai.json"),
-        ("FamilyFilm", "Phim gia đình", "gia-dinh", "phimhay_giadinh.json"),
+        # ("SportFilm", "Phim thể thao", "the-thao", "phimhay.json"),
+        # ("FictionlFilm", "Phim viễn tưởng", "vien-tuong", "phimhay.json"),
+        # ("ClassicFilm", "Phim kinh điển", "kinh-dien", "phimhay_kinhdien.json"),
+        # ("SoulFilm", "Phim tâm lý", "tam-ly", "phimhay_tamly.json"),
+        # ("MusicFilm", "Phim âm nhạc", "am-nhac", "phimhay_amnhac.json"),
+        # ("SecretFilm", "Phim bí ẩn", "bi-an", "phimhay_bian.json"),
+        # ("CotrangFilm", "Phim cổ trang", "co-trang", "phimhay_cotrang.json"),
+        # ("FunnyFilm", "Phim hài hước", "hai-huoc", "phimhay_haihuoc.json"),
+        # ("ChinhkichFilm", "Phim chính kịch", "chinh-kich", "phimhay_chinhkich.json"),
+        # ("ThanthoaiFilm", "Phim thần thoại", "than-thoai", "phimhay_thanthoai.json"),
+        # ("FamilyFilm", "Phim gia đình", "gia-dinh", "phimhay_giadinh.json"),
     ]
 
     functions_to_call = []
