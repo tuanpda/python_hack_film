@@ -64,7 +64,7 @@ def add_videos(
 
 def job():
     num_of_page = 50
-    page_number = 1
+    page_number = 33
     link_phim = "https://phimhay.ink/danh-sach/phim-bo"
 
     while page_number <= num_of_page:
