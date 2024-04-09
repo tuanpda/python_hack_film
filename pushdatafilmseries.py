@@ -7,10 +7,10 @@ from tqdm import tqdm
 
 def push_data_to_database(jsonfile):
     # info connect db
-    server = "125.212.224.205"
-    database = "tuanphan_phimhay"
-    username = "tuanphan_phimhay"
-    password = "qv3eL3^16"
+    server = "14.224.129.177"
+    database = "phimhay"
+    username = "sa"
+    password = "Sa)(%^0702!@"
 
     # Establishing a connection to the SQL Server
     cnxn = pyodbc.connect(
