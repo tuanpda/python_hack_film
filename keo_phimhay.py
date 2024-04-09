@@ -174,6 +174,14 @@ def job():
     # GỌI HÀM GET PHIM THEO THỂ LOẠI
     # Khai báo các thông số cho từng loại phim
     film_types = [
+        ("ActionFilm", "Phim hành động", "hanh-dong", "phimhay.json"),
+        ("MartialFilm", "Phim võ thuật", "vo-thuat", "phimhay.json"),
+        ("AnimelFilm", "Phim hoạt hình", "hoat-hinh", "phimhay.json"),
+        ("HorrorFilm", "Phim kinh dị", "kinh-di", "phimhay.json"),
+        ("WarFilm", "Phim chiến tranh", "chien-tranh", "phimhay.json"),
+        ("PolFilm", "Phim hình sự", "hinh-su", "phimhay.json"),
+        ("LoveFilm", "Phim tình cảm", "tinh-cam", "phimhay.json"),
+        ("StudentFilm", "Phim học đường", "hoc-duong", "phimhay.json"),        
         ("SportFilm", "Phim thể thao", "the-thao", "phimhay.json"),
         ("FictionlFilm", "Phim viễn tưởng", "vien-tuong", "phimhay.json"),
         ("ClassicFilm", "Phim kinh điển", "kinh-dien", "phimhay_kinhdien.json"),
