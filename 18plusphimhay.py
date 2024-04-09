@@ -36,6 +36,8 @@ def add_videos(
     link,
     image,
     actor,
+    thoiluong,
+    author,
     streamsUrl,
     server,
 
@@ -50,6 +52,8 @@ def add_videos(
     new_video["link"] = link
     new_video["image"] = image
     new_video["actor"] = actor
+    new_video["thoiluong"] = thoiluong
+    new_video["author"] = author
     new_video["streamsUrl"] = streamsUrl
     new_video["server"] = server
 
@@ -135,6 +139,8 @@ def job():
                         href_video,
                         image_video,
                         info_movie[7],
+                        info_movie[2], # thời lượng
+                        info_movie[6], # author
                         link_media,
                         "https://phimhay.ink/",
                     )
