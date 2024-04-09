@@ -79,8 +79,8 @@ def push_data_to_database(category, jsonfile, checkDelete):
             if not existing_entry:
                 cursor.execute(
                     """
-                    INSERT INTO movies (title, country, year, content, category, category_name, link, image, actor, streamsUrl, server, createdAt, createdBy)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)
+                    INSERT INTO movies (title, country, year, content, category, category_name, link, image, actor, thoiluong, author, streamsUrl, server, createdAt, createdBy)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                     (
                         item["title"],
@@ -92,6 +92,8 @@ def push_data_to_database(category, jsonfile, checkDelete):
                         item["link"],
                         item["image"],
                         item["actor"],
+                        item["thoiluong"],
+                        item["author"],
                         item["streamsUrl"],
                         item["server"],
                         current_datetime,
