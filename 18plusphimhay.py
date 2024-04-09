@@ -57,7 +57,7 @@ def add_videos(
 
 
 def job():
-    num_of_page = 5
+    num_of_page = 50
     page_number = 1
     link_phim = "https://phimhay.ink/the-loai/phim-18"
     
@@ -149,6 +149,8 @@ def job():
             json.dump(videos, write_file, ensure_ascii=False)
 
         push_data_to_database("phim18plus","phimhay_phim18plus.json", 1)
+        
+        # subprocess.run(["python", "keo_phimhay.py"])
 
 # # Khởi tạo scheduler
 # scheduler = BlockingScheduler()

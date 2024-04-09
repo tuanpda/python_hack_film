@@ -181,7 +181,8 @@ def job():
         ("WarFilm", "Phim chiến tranh", "chien-tranh", "phimhay.json"),
         ("PolFilm", "Phim hình sự", "hinh-su", "phimhay.json"),
         ("LoveFilm", "Phim tình cảm", "tinh-cam", "phimhay.json"),
-        ("StudentFilm", "Phim học đường", "hoc-duong", "phimhay.json"),        
+        ("StudentFilm", "Phim học đường", "hoc-duong", "phimhay.json"),
+                
         ("SportFilm", "Phim thể thao", "the-thao", "phimhay.json"),
         ("FictionlFilm", "Phim viễn tưởng", "vien-tuong", "phimhay.json"),
         ("ClassicFilm", "Phim kinh điển", "kinh-dien", "phimhay_kinhdien.json"),
