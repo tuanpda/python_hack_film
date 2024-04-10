@@ -163,9 +163,6 @@ def get_Film_Data_With_Cat(
 
     # Ghi vào DB. xong toàn bộ trang của 1 thể loại thì đẩy vào 1 lần
     push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 1)
-    
-    subprocess.run(["python", "18plusphimhay.py"])
-    subprocess.run(["python", "keo_phimbo.py"])
 
 def job():
     # các thông số cơ bản
@@ -221,12 +218,14 @@ def job():
         args = function_info["args"]
         function(*args)
 
+    subprocess.run(["python", "18plusphimhay.py"])
+    subprocess.run(["python", "keo_phimbo.py"])
 
 # Khởi tạo scheduler
 scheduler = BlockingScheduler()
 
 # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-scheduler.add_job(job, "cron", hour=14, minute=30)
+scheduler.add_job(job, "cron", hour=18, minute=00)
 
 # Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
 scheduler.add_job(job, "interval", hours=3)

@@ -65,11 +65,10 @@ def job():
     page_number = 1
     link_phim = "https://phimhay.ink/the-loai/phim-18"
     
-    
     while page_number <= num_of_page:
         # Link get phim
         link = f"{link_phim}/?page={page_number}"
-
+        print('Kéo 18plus: ' + link)
         response = requests.get(link)
         response.encoding = response.apparent_encoding
         data_web = response.text
