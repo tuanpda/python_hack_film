@@ -163,11 +163,14 @@ def get_Film_Data_With_Cat(
 
     # Ghi vào DB. xong toàn bộ trang của 1 thể loại thì đẩy vào 1 lần
     push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 1)
+    
+    subprocess.run(["python", "18plusphimhay.py"])
+    subprocess.run(["python", "keo_phimbo.py"])
 
 def job():
     # các thông số cơ bản
     linkphim = "https://phimhay.ink/the-loai"
-    num_of_page_value = 50
+    num_of_page_value = 3
     page_number_value = 1
     server = "https://phimhay.ink"
 
@@ -181,19 +184,18 @@ def job():
         ("WarFilm", "Phim chiến tranh", "chien-tranh", "phimhay.json"),
         ("PolFilm", "Phim hình sự", "hinh-su", "phimhay.json"),
         ("LoveFilm", "Phim tình cảm", "tinh-cam", "phimhay.json"),
-        ("StudentFilm", "Phim học đường", "hoc-duong", "phimhay.json"),
-                
-        # ("SportFilm", "Phim thể thao", "the-thao", "phimhay.json"),
-        # ("FictionlFilm", "Phim viễn tưởng", "vien-tuong", "phimhay.json"),
-        # ("ClassicFilm", "Phim kinh điển", "kinh-dien", "phimhay_kinhdien.json"),
-        # ("SoulFilm", "Phim tâm lý", "tam-ly", "phimhay_tamly.json"),
-        # ("MusicFilm", "Phim âm nhạc", "am-nhac", "phimhay_amnhac.json"),
-        # ("SecretFilm", "Phim bí ẩn", "bi-an", "phimhay_bian.json"),
-        # ("CotrangFilm", "Phim cổ trang", "co-trang", "phimhay_cotrang.json"),
-        # ("FunnyFilm", "Phim hài hước", "hai-huoc", "phimhay_haihuoc.json"),
-        # ("ChinhkichFilm", "Phim chính kịch", "chinh-kich", "phimhay_chinhkich.json"),
-        # ("ThanthoaiFilm", "Phim thần thoại", "than-thoai", "phimhay_thanthoai.json"),
-        # ("FamilyFilm", "Phim gia đình", "gia-dinh", "phimhay_giadinh.json"),
+        ("StudentFilm", "Phim học đường", "hoc-duong", "phimhay.json"),   
+        ("SportFilm", "Phim thể thao", "the-thao", "phimhay.json"),
+        ("FictionlFilm", "Phim viễn tưởng", "vien-tuong", "phimhay.json"),
+        ("ClassicFilm", "Phim kinh điển", "kinh-dien", "phimhay_kinhdien.json"),
+        ("SoulFilm", "Phim tâm lý", "tam-ly", "phimhay_tamly.json"),
+        ("MusicFilm", "Phim âm nhạc", "am-nhac", "phimhay_amnhac.json"),
+        ("SecretFilm", "Phim bí ẩn", "bi-an", "phimhay_bian.json"),
+        ("CotrangFilm", "Phim cổ trang", "co-trang", "phimhay_cotrang.json"),
+        ("FunnyFilm", "Phim hài hước", "hai-huoc", "phimhay_haihuoc.json"),
+        ("ChinhkichFilm", "Phim chính kịch", "chinh-kich", "phimhay_chinhkich.json"),
+        ("ThanthoaiFilm", "Phim thần thoại", "than-thoai", "phimhay_thanthoai.json"),
+        ("FamilyFilm", "Phim gia đình", "gia-dinh", "phimhay_giadinh.json"),
     ]
 
     functions_to_call = []
@@ -220,5 +222,19 @@ def job():
         function(*args)
 
 
+# Khởi tạo scheduler
+scheduler = BlockingScheduler()
+
+# Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
+scheduler.add_job(job, "cron", hour=14, minute=0)
+
+# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
+scheduler.add_job(job, "interval", hours=3)
+
+# Bắt đầu lịch trình
+try:
+    scheduler.start()
+except KeyboardInterrupt:
+    pass
        
-job()
+# job()

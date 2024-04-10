@@ -63,7 +63,7 @@ def add_videos(
 
 
 def job():
-    num_of_page = 5
+    num_of_page = 3
     page_number = 1
     link_phim = "https://phimhay.ink/danh-sach/phim-bo"
 
@@ -213,19 +213,19 @@ def job():
         push_data_to_database("phimhay_phimbo.json")
 
 
-# Khởi tạo scheduler
-scheduler = BlockingScheduler()
+# # Khởi tạo scheduler
+# scheduler = BlockingScheduler()
 
-# Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-scheduler.add_job(job, "cron", hour=18, minute=0)
+# # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
+# scheduler.add_job(job, "cron", hour=14, minute=0)
 
-# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
-scheduler.add_job(job, "interval", hours=2)
+# # Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
+# scheduler.add_job(job, "interval", hours=3)
 
-# Bắt đầu lịch trình
-try:
-    scheduler.start()
-except KeyboardInterrupt:
-    pass
+# # Bắt đầu lịch trình
+# try:
+#     scheduler.start()
+# except KeyboardInterrupt:
+#     pass
 
-# job()
+job()
