@@ -163,8 +163,8 @@ def get_Film_Data_With_Cat(
         # đối trang khác
         page_number += 1           
 
-    # Ghi vào DB. xong toàn bộ trang của 1 thể loại thì đẩy vào 1 lần
-    push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 1)
+        # Ghi vào DB. xong trang nào ghi dữ liệu trang đó
+        push_data_to_database(f"{code_name_cat}", f"{json_file_name}", 1)
 
 def job():
     # các thông số cơ bản
