@@ -91,7 +91,7 @@ def get_Film_Data_With_Cat(
                 # thông tin ban đầu của video
                 href_video = article_div_videos.find("a")["href"]
                 title_video = article_div_videos.find("a")["title"]
-                # print(title_video)
+                # print(href_video)
                 image_video = article_div_videos.find(name="img")["src"]
 
                 # đến link detail video
@@ -100,8 +100,10 @@ def get_Film_Data_With_Cat(
                     data_web_detail = get_detail_movie.text
                     soup_movie_detail = BeautifulSoup(data_web_detail, "html.parser")
 
-                    # thông tin movie
+                    # thông tin movie entry-content
                     info_movie = []
+                    content_tag_div = soup_movie_detail.find(name="div", class_="entry-content").get_text(strip=True)
+                    # print(content_tag_div)
                     spans_tag = soup_movie_detail.find(name="div", class_="spe")("span")
                     for span_tag in spans_tag:
                         content = span_tag.get_text(strip=True)
@@ -137,7 +139,7 @@ def get_Film_Data_With_Cat(
                             title_video,
                             info_movie[3], # country
                             info_movie[1], # year
-                            "Chúc bạn xem phim vui vẻ tại App Phimhay. Hi vọng mang đến cho bạn trải nghiệm tốt nhất. Phim chưa có nội dung giới thiêu. Cảm ơn tất cả các bạn",
+                            content_tag_div,
                             code_name_cat,
                             name_of_cat,
                             href_video,
@@ -167,7 +169,7 @@ def get_Film_Data_With_Cat(
 def job():
     # các thông số cơ bản
     linkphim = "https://phimhay.ink/the-loai"
-    num_of_page_value = 3
+    num_of_page_value = 50
     page_number_value = 1
     server = "https://phimhay.ink"
 
@@ -221,19 +223,19 @@ def job():
     subprocess.run(["python", "18plusphimhay.py"])
     subprocess.run(["python", "keo_phimbo.py"])
 
-# Khởi tạo scheduler
-scheduler = BlockingScheduler()
+# # Khởi tạo scheduler
+# scheduler = BlockingScheduler()
 
-# Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
-scheduler.add_job(job, "cron", hour=19, minute=00)
+# # Lập lịch cho công việc chạy vào mỗi ngày vào 17:45
+# scheduler.add_job(job, "cron", hour=19, minute=00)
 
-# Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
-scheduler.add_job(job, "interval", hours=3)
+# # Lập lịch cho công việc chạy cứ mỗi 10 giờ kể từ 21:45 hàng ngày
+# scheduler.add_job(job, "interval", hours=3)
 
-# Bắt đầu lịch trình
-try:
-    scheduler.start()
-except KeyboardInterrupt:
-    pass
+# # Bắt đầu lịch trình
+# try:
+#     scheduler.start()
+# except KeyboardInterrupt:
+#     pass
        
-# job()
+job()

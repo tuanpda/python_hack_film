@@ -110,6 +110,8 @@ def job():
 
             # thông tin movie
             info_movie = []
+            content_tag_div = soup_movie_detail.find(name="div", class_="entry-content").get_text(strip=True)
+            # print(content_tag_div)
             spans_tag = soup_movie_detail.find(name="div", class_="spe")("span")
             for span_tag in spans_tag:
                 content = span_tag.get_text(strip=True)
@@ -190,7 +192,7 @@ def job():
                     title_video,
                     info_movie[3],
                     info_movie[1],
-                    "",
+                    content_tag_div,
                     "SeriesMovies",
                     "Phim bộ",
                     href_video,

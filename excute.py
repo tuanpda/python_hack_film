@@ -89,6 +89,7 @@ for article_div_video in all_articles_div_video:
     data_links = [a['data-link'] for a in a_tags]
     
     # print data
+    print(info_movie)
     # print(image_url)
     # print(href_value)
     # print(title_value)
@@ -100,10 +101,10 @@ for article_div_video in all_articles_div_video:
     
     # def add_videos(_id, title, country, year, content, category, category_name, link, image, actor, streamsUrl):
     
-    add_videos(random.randint(1, 10000), title_value, country,
-                   year, info_movie, 'NewMovie', 'Phim mới', href_value, image_url, actor, data_links)
+#     add_videos(random.randint(1, 10000), title_value, country,
+#                    year, info_movie, 'NewMovie', 'Phim mới', href_value, image_url, actor, data_links)
     
 
-with open("zuiphim_phimmoi.json", "w", encoding='utf-8') as write_file:
-        json.dump(videos, write_file, ensure_ascii=False)
+# with open("zuiphim_phimmoi.json", "w", encoding='utf-8') as write_file:
+#         json.dump(videos, write_file, ensure_ascii=False)
     
