@@ -61,7 +61,7 @@ def add_videos(
 
 
 def job():
-    num_of_page = 50
+    num_of_page = 3
     page_number = 1
     link_phim = "https://phimhay.ink/the-loai/phim-18"
     
