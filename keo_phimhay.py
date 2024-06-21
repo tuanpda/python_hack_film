@@ -10,10 +10,21 @@ from tqdm import tqdm
 from datetime import datetime
 import time
 import subprocess
-from apscheduler.schedulers.blocking import BlockingScheduler
 
 # from file pushdatafilmtosqlserver
 from pushdatafilmtosqlserver import push_data_to_database
+
+from apscheduler.schedulers.blocking import BlockingScheduler
+from apscheduler.executors.pool import ThreadPoolExecutor
+
+executors = {
+    'default': ThreadPoolExecutor(20)  # Tăng số lượng thread pool executor nếu cần thiết
+}
+job_defaults = {
+    'max_instances': 3  # Số lượng instance tối đa cho mỗi job
+}
+
+scheduler = BlockingScheduler(executors=executors, job_defaults=job_defaults)
 
 # get time
 current_datetime = datetime.now()
